@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vasion Email Signature Generator</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- <link rel="text/javascript" href="index.js"> -->
+    <style>
+        body {
+            color:#666666;
+            margin-left: 300px;
+            margin-right: 300px;
+        }
+        form {
+            margin: 10px;
+        }
+        label {
+            font-family: 'Archivo'sans-serif;
+            font-size: 15px
+        }
+        table {
+            padding: 10px;
+            border-collapse: collapse;
+            margin-left: 15px;
+        }
+        .bottom-half {
+            border-top: solid orangered 1px;
+            margin-top: 20px;
+        }
+         textarea {
+            width: 100%;
+            height: 200px;
+        }
+        input {
+            width: 100%;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+         }
+        td {
+            padding-top: 5px;
+        }
+        a {
+            color: #666666;
+            margin-top: 75px;
+            text-decoration: none;
+        }
+        
+        #signature {
+            border: solid grey 1px;
+            border-radius: 5px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion Logo.png"
+          style="width:200px;margin-top:15px;" />
+      </header>
+      <h1 style="font:'Sans-serif';font-weight:100;">Vasion E-mail Signature Generator</h1>
+    <form>
+        <label>Name:</label> <input id="formName" placeholder="Chris Summerhays" type="text" required />
+        <label>Role:</label><input id="formRole" placeholder="Chief Business Officer" type="text" required />
+        <label>Department:</label><input id="formDept" placeholder="Marketing" type="text" required />
+        <br />
+        <label>Email:</label> <input id="formEmail" placeholder="vasioneer@vasion.com" type="email" />
+        <label>Mobile Number:</label> <input id="formMob" type="tel" placeholder="555-555-5555" />
+        <label>Business Address:</label> <input id="formAddress" type="text" placeholder="432 Tech Ridge Rd" />
+        <label>Your Linkedin URL:</label> <input id="formLinkedIn" type="url" placeholder="https://www.linkedin.com/company/vasion-software/" />
+        <button onclick="updateInfo()" type="button" id="update"
+          style="background-color: orange; margin-top:20px; margin-bottom:20px;border-radius:5px;padding: 5px 5px;color:#1f1f1f;">Generate</button>
+    </form>
+      <!-- Signiture Mock -->
+    <h3>Here is your signature:</h3>
+    <div id="signature">
+        <table cellpadding="10" cellspacing="0" border="0">
+            <tbody>
+                <tr>
+                    <table cellpadding='0' cellspacing='0' border="0">
+                        <tr>
+                            <td id="name" scope="col" style="border-right: orangered 1px solid; color:#3f0f3f; padding-right: 25px;padding-bottom: 5px; font-size: 25px; font-weight: bold;">
+                                Fellow Vasioneer
+                            </td>
+                            <td id="mobile" scope="col" style="padding-left: 35px;font-size: 15px;padding-bottom: 5px">
+                                <a href="#" style="color: #666666">555-555-5555</a>
+                            <td>
+                        </tr>
+                        <tr>
+                            <td id="role" scope="col" style="border-right: orangered 1px solid;color:#3f0f3f;padding-right: 25px;padding-bottom: 5px;font-size: 15px; ">
+                                Astronaut
+                            </td>
+                            <td id="email" scope="col" style="padding-left: 35px;font-size: 15px; padding-bottom: 5px">
+                                <a href="mailto:bryce.drawe@vasion.com">vasioneer@vasion.com</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="department" scope="col"style="border-right: orangered 1px solid;color:#3f0f3f;padding-right: 25px;padding-bottom: 5px; font-size: 15px; ">
+                                Vasion
+                            </td>
+                            <td  id="address" scope="col" style="padding-left: 35px;font-size: 15px;padding-bottom: 5px">
+                                432 S Tech Ridge Dr St. George, UT
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  scope="col" style="height:20px"></td>
+                            <td scope="col" style="height:20px"></td>
+                        </tr>
+                    
+            <!-- image -->
+                    
+                        <tr valign="bottom">
+                            <td scope="col" valign="bottom" style="border-top:orangered 1px solid; margin-top:10px">
+                                <a href="https://www.vasion.com/"><img id="TemplateLogo" width="200" data-class="external"
+                                    src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion Logo.png" alt="Vasion"
+                                    style="vertical-align:bottom ; padding-top: 15px;" />
+                                </a>
+                            </td>
+                            <td scope="col" valign="bottom"style="border-top:orangered 1px solid; margin-top:10px;">
+                                <a  id="linkedin"href="https://www.linkedin.com/company/vasion-software/">
+                                    <img
+                                    data-class="external"
+                                    src="http://info.printerlogic.com/rs/338-HTA-134/images/Linkedin.png"
+                                    style="vertical-align: bottom; width: 30px; margin-left:250px;"
+                                    />
+                            </a>
+
+                            </td>
+                        </tr>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h3>Raw Code</h3>
+    <textarea id="codeArea">Your code will appear here</textarea>
+
+    <script>
+    let name = document.getElementById("formName");
+    let signature = document.getElementById("signature");
+    let role = document.getElementById("formRole");
+    let address = document.getElementById("formAddress");
+    let email = document.getElementById("formEmail");
+    let linkedIn = document.getElementById("formLinkedIn");
+    let mob = document.getElementById("formMob");
+    let codeArea = document.getElementById("codeArea");
+    let department = document.getElementById("formDept")
+    function codeGenerator() {
+      var code = signature.cloneNode(true); 
+      return code;
+    }
+    function updateInfo() {
+      document.getElementById("name").innerHTML = name.value;
+      document.getElementById("role").innerHTML = role.value;
+      document.getElementById("department").innerHTML = department.value;
+      document.getElementById("address").innerHTML = address.value;
+      document.getElementById("address").innerHTML = address.value;
+      document.getElementById("email").innerHTML = email.value;
+      document.getElementById("email").href = "mailto:" + email.value;
+      document.getElementById("linkedin").href =  linkedIn.value;
+
+      if (mob.value > "") {
+        document.getElementById("mobile").innerHTML = mob.value;
+      } else {
+        if (mob.value > "") {
+          document.getElementById("mobile").innerHTML = `<a href="tel:${mob.value}" style ="color: #03509c"> Tel: ${mob.value}</a>/>`;
+        } else {
+          document.getElementById("mobile").innerHTML = "";
+        }
+      }
+      code = codeGenerator()
+      codeArea.innerHTML = code.innerHTML;
+    }
+    </script>
+</body>
+</html>
