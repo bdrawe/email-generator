@@ -20,6 +20,9 @@
             font-family: 'Archivo'sans-serif;
             font-size: 15px
         }
+        i {
+            color: black;
+        }
         table {
             padding: 10px;
             border-collapse: collapse;
@@ -88,7 +91,8 @@
                             <td id="name" scope="col" style="border-right: orangered 1px solid; color:#3f0f3f; padding-right: 25px;padding-bottom: 5px; font-size: 25px; font-weight: bold;">
                                 Fellow Vasioneer
                             </td>
-                            <td id="mobile" scope="col" style="padding-left: 35px;font-size: 15px;padding-bottom: 5px">
+                            <td id="mobile" scope="col" style="padding-left: 35px;font-size: 15px;">
+                                <span style="font-weight: bold; padding-right: 3px">P:</span>
                                 <a href="#" style="color: #666666">555-555-5555</a>
                             <td>
                         </tr>
@@ -97,7 +101,8 @@
                                 Astronaut
                             </td>
                             <td id="email" scope="col" style="padding-left: 35px;font-size: 15px; padding-bottom: 5px">
-                                <a href="mailto:bryce.drawe@vasion.com">vasioneer@vasion.com</a>
+                                <span style="font-weight: bold; padding-right: 3px">E:</span>
+                                <a href="mailto:bryce.drawe@vasion.com" style="padding-bottom:5px"> vasioneer@vasion.com</a>
                             </td>
                         </tr>
                         <tr>
@@ -105,6 +110,7 @@
                                 Vasion
                             </td>
                             <td  id="address" scope="col" style="padding-left: 35px;font-size: 15px;padding-bottom: 5px">
+                                <span style="font-weight: bold; padding-right: 3px"> O:</span>
                                 432 S Tech Ridge Dr St. George, UT
                             </td>
                         </tr>
@@ -160,15 +166,15 @@
       document.getElementById("department").innerHTML = department.value;
       document.getElementById("address").innerHTML = address.value;
       document.getElementById("address").innerHTML = address.value;
-      document.getElementById("email").innerHTML = email.value;
+      document.getElementById("email").innerHTML = `<i class="fas fa-envelope"></i>` + email.value;
       document.getElementById("email").href = "mailto:" + email.value;
       document.getElementById("linkedin").href =  linkedIn.value;
 
       if (mob.value > "") {
-        document.getElementById("mobile").innerHTML = mob.value;
+        document.getElementById("mobile").innerHTML = '<i class="fas fa-phone-alt"></i>' + mob.value;
       } else {
         if (mob.value > "") {
-          document.getElementById("mobile").innerHTML = `<a href="tel:${mob.value}" style ="color: #03509c"> Tel: ${mob.value}</a>/>`;
+          document.getElementById("mobile").innerHTML = `<i class="fas fa-phone-alt"></i><a href="tel:${mob.value}" style ="color: #03509c"> Tel: ${mob.value}</a>/>`;
         } else {
           document.getElementById("mobile").innerHTML = "";
         }
