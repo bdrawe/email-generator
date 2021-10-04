@@ -60,6 +60,12 @@
         #formCompany {
             margin: 10px;
         }
+        #euroCompliance {
+            font-size: 6px;
+        }
+        #formCountry {
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
@@ -87,12 +93,22 @@
         <label>Role:</label><input id="formRole" placeholder="Chief Business Officer" type="text" required />
         <label>Department:</label><input id="formDept" placeholder="Business Department" type="text" required />
         <label>Email:</label> <input id="formEmail" placeholder="vasioneer@vasion.com" type="email" />
-        <label>Company:</label><br/><select id="formCompany" placeholder="Vasion or Printerlogic">
+        <label>Number:</label> <input id="formMob" type="tel" placeholder="555-555-5555" />
+        <label>Company:</label><br/><select id="formCompany">
             <option value="vasion">Vasion</option>
             <option value="printerlogic">Printerlogic</option>
         </select>
         <br/>
-        <label>Number:</label> <input id="formMob" type="tel" placeholder="555-555-5555" />
+        <label>Country:</label><br/><select id="formCountry">
+            <option value="">-- Please Select One --</option>
+            <option value="United States">United States</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="Germany">Germany</option>
+            <option value="Philippines">Philippines</option>
+            <option value="Mexico">Mexico</option>
+            <option value="Other">Other</option>
+        </select>
+        <br/>
         <label>Business Address:</label> <input id="formAddress" type="text" placeholder="432 S Tech Ridge Dr." />
         <label>Your Linkedin URL:</label> <input id="formLinkedIn" type="url" placeholder="https://www.linkedin.com/company/vasion-software/" />
         <button onclick="updateInfo()" type="button" id="update"
@@ -150,6 +166,9 @@
 
                             </td>
                         </tr>
+                        <tr>
+                            <td scope="col" valign="bottom" id="euroCompliance"></td>
+                        </tr>
                 </tr>
             </tbody>
         </table>
@@ -167,16 +186,22 @@
     let mob = document.getElementById("formMob");
     let codeArea = document.getElementById("codeArea");
     let department = document.getElementById("formDept")
+    let country = document.getElementById("formCountry")
     
     function updateInfo() {
       document.getElementById("name").innerHTML = name.value;
       document.getElementById("role").innerHTML = role.value;
       document.getElementById("department").innerHTML = department.value;
       document.getElementById("address").innerHTML = address.value;
-    //   document.getElementById("address").innerHTML = address.value;
       document.getElementById("email").innerHTML = email.value;
       document.getElementById("email").href = "mailto:" + email.value;
       document.getElementById("linkedin").href =  linkedIn.value;
+
+      if(country.value === "EMEA"){
+          document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`
+      } else {
+        document.getElementById("euroCompliance").innerHTML = ``;
+      }
 
       if (company.value === "vasion") {
           document.getElementById("templateLogo").innerHTML= `<a href="https://vasion.com"><img id="templateLogo" width="200" data-class="external"
