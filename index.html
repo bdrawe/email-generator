@@ -97,16 +97,7 @@
         <label>Company:</label><br/><select id="formCompany">
             <option value="vasion">Vasion</option>
             <option value="printerlogic">Printerlogic</option>
-        </select>
-        <br/>
-        <label>Country:</label><br/><select id="formCountry">
-            <option value="">-- Please Select One --</option>
-            <option value="United States">United States</option>
-            <option value="United Kingdom">United Kingdom</option>
-            <option value="Germany">Germany</option>
-            <option value="Philippines">Philippines</option>
-            <option value="Mexico">Mexico</option>
-            <option value="Other">Other</option>
+            <option value="Printerlogic - Germany">Printerlogic - Germany</option>
         </select>
         <br/>
         <label>Business Address:</label> <input id="formAddress" type="text" placeholder="432 S Tech Ridge Dr." />
@@ -186,7 +177,7 @@
     let mob = document.getElementById("formMob");
     let codeArea = document.getElementById("codeArea");
     let department = document.getElementById("formDept")
-    let country = document.getElementById("formCountry")
+    // let country = document.getElementById("formCountry")
     
     function updateInfo() {
       document.getElementById("name").innerHTML = name.value;
@@ -197,20 +188,23 @@
       document.getElementById("email").href = "mailto:" + email.value;
       document.getElementById("linkedin").href =  linkedIn.value;
 
-      if(country.value === "Germany"){
-          document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`
-      } else {
-        document.getElementById("euroCompliance").innerHTML = ``;
-      }
 
       if (company.value === "vasion") {
           document.getElementById("templateLogo").innerHTML= `<a href="https://vasion.com"><img id="templateLogo" width="200" data-class="external"
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion Logo.png" alt="logo"
                                     style="vertical-align:bottom ; padding-top: 15px;" /></a>`;
-      } else {
+      } else if ( company.value === "Printerlogic - Germany"){
+          document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`                          
+                                    console.log("Disclaimer rendered")
           document.getElementById('templateLogo').innerHTML = `<a href="https://www.printerlogic.com"><img id="templateLogo" width="200" data-class="external"
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/PrinterLogic Logo.png" alt="logo"
                                     style="vertical-align:bottom ; padding-top: 15px;" /></a>`
+                                    console.log("Template Logo Rendered")
+      } else {
+        document.getElementById('templateLogo').innerHTML = `<a href="https://www.printerlogic.com"><img id="templateLogo" width="200" data-class="external"
+                                    src="http://info.printerlogic.com/rs/338-HTA-134/images/PrinterLogic Logo.png" alt="logo"
+                                    style="vertical-align:bottom ; padding-top: 15px;" /></a>`
+                                    console.log("just PL");
       }
 
       if (mob.value > "") {
