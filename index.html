@@ -38,7 +38,6 @@
             width: 100%;
             margin: 5px;
             padding: 10px;
-            border-radius: 5px;
             border-top: none;
             border-left: none;
             border-right: none;
@@ -112,7 +111,7 @@
       <!-- Signiture Mock -->
     <h3>Here is your signature:</h3>
     <div id="signature">
-        <table cellpadding="10" cellspacing="0" border="0">
+        <table cellpadding="1" cellspacing="0" border="0">
             <tbody>
                 <tr>
                     <table cellpadding='0' cellspacing='0' border="0">
@@ -137,7 +136,7 @@
                                 Vasion
                             </td>
                             <td  id="address" scope="col" style="padding-left: 35px;font-size: 15px;padding-bottom: 5px">
-                                432 S Tech Ridge Dr St. George, UT
+                                432 S Tech Ridge Dr
                             </td>
                         </tr>
                         <tr>
@@ -155,7 +154,7 @@
                                     <img
                                     data-class="external"
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/Linkedin.png"
-                                    style="vertical-align: bottom; width: 30px; margin-left:250px;"
+                                    style="vertical-align: bottom; width: 30px; margin-left:200px;"
                                     />
                             </a>
 
@@ -194,17 +193,17 @@
 
 
       if (company.value === "vasion") {
-          document.getElementById("templateLogo").innerHTML= `<a href="https://vasion.com"><img id="templateLogo" width="200" data-class="external"
+          document.getElementById("templateLogo").innerHTML= `<a href="https://vasion.com"><img id="templateLogo" width="250" data-class="external"
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion Logo.png" alt="logo"
                                     style="vertical-align:bottom ; padding-top: 15px;" /></a>`;
                                     document.getElementById("euroCompliance").innerHTML = ``                          
       } else if ( company.value === "Printerlogic - Germany"){
           document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`                          
-          document.getElementById('templateLogo').innerHTML = `<a href="https://www.printerlogic.com"><img id="templateLogo" width="200" data-class="external"
+          document.getElementById('templateLogo').innerHTML = `<a href="https://www.printerlogic.com"><img id="templateLogo" width="250" data-class="external"
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png" alt="logo"
                                     style="vertical-align:bottom ; padding-top: 15px;" /></a>`
       } else {
-        document.getElementById('templateLogo').innerHTML = `<a href="https://www.printerlogic.com"><img id="templateLogo" width="200" data-class="external"
+        document.getElementById('templateLogo').innerHTML = `<a href="https://www.printerlogic.com"><img id="templateLogo" width="250" data-class="external"
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png" alt="logo"
                                     style="vertical-align:bottom ; padding-top: 15px;" /></a>`
                                     document.getElementById("euroCompliance").innerHTML = ``
