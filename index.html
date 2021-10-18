@@ -57,7 +57,7 @@
             padding-top: 20px;
             padding-bottom: 20px;
         }
-        #formCompany {
+         #formCompany {
             margin: 10px;
         }
         #euroCompliance {
@@ -154,7 +154,7 @@
                                     <img
                                     data-class="external"
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/Linkedin.png"
-                                    style="vertical-align: bottom; width: 30px; margin-left:200px;"
+                                    style="vertical-align: bottom; width: 30px; margin-left:250px;"
                                     />
                             </a>
 
@@ -180,7 +180,6 @@
     let mob = document.getElementById("formMob");
     let codeArea = document.getElementById("codeArea");
     let department = document.getElementById("formDept")
-    // let country = document.getElementById("formCountry")
     
     function updateInfo() {
       document.getElementById("name").innerHTML = name.value;
@@ -207,6 +206,11 @@
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png" alt="logo"
                                     style="vertical-align:bottom ; padding-top: 15px;" /></a>`
                                     document.getElementById("euroCompliance").innerHTML = ``
+      };
+
+      if(address.value === '') {
+          document.getElementById('address').innerHTML = `<p>432 S Tech Ridge Dr St.George, UT</p>`
+          
       }
 
       if (mob.value > "") {
