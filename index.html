@@ -9,261 +9,320 @@
     <!-- <link rel="text/javascript" href="index.js"> -->
     <style>
         body {
-            color:#666666;
+            color: #666666;
             margin-left: 300px;
             margin-right: 300px;
             font-family: sans-serif;
         }
+
+        main {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: start;
+            align-content: stretch;
+            gap: 40px;
+        }
+
+        .formFields {
+            width: 33%;
+            padding-left: 40px;
+        }
+
+        .instructions {
+            width: 33%;
+        }
+
+        .generatedSig {
+            width: 33%;
+
+        }
+
         form {
             margin: 10px;
         }
+
         label {
             font-family: 'Archivo'sans-serif;
             font-size: 15px
         }
+
         table {
             padding: 10px;
             border-collapse: collapse;
             margin-left: 15px;
         }
+
         .bottom-half {
             border-top: solid orangered 1px;
             margin-top: 20px;
         }
-         textarea {
+
+        textarea {
             width: 100%;
             height: 200px;
         }
+
         input {
-            width: 100%;
+            width: 75%;
             margin: 5px;
             padding: 10px;
             border-top: none;
             border-left: none;
             border-right: none;
-         }
+        }
+
         td {
             padding-top: 5px;
         }
+
         a {
             color: #666666;
             margin-top: 75px;
             text-decoration: none;
         }
-        
+
         #signature {
-            border: solid grey 1px;
-            border-radius: 5px;
             padding-top: 20px;
             padding-bottom: 20px;
+            width: 50%;
         }
-         #formCompany {
+
+        #formCompany {
             margin: 10px;
         }
+
         #formDept {
-            margin:10px;
+            margin: 10px;
         }
+
         #euroCompliance {
             font-size: 6px;
         }
+
         #formCountry {
             margin: 10px;
         }
+
         ol {
             line-height: 35px;
         }
     </style>
 </head>
+
 <body>
     <header>
         <img src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion Logo.png"
-          style="width:200px;margin-top:15px;" />
-      </header>
-      <h1 style="font:'Sans-serif';font-weight:100;">Vasion E-mail Signature Generator</h1>
-      <div>
-        <h4>How to add your Signiture to your Gmail Client</h4>
-        <p>
+            style="width:200px;margin-top:15px;" />
+    </header>
+    <h1 style="font:'Sans-serif';font-weight:100;">Vasion E-mail Signature Generator</h1>
+    <main>
+        <form class="formFields">
+            <h2>Step 1: Fill out Form</h2>
+            <label>Name:</label> <input id="formName" placeholder="Fellow Vasioneer" type="text" required />
+            </br>
+            <label>Role:</label><input id="formRole" placeholder="Chief Business Officer" type="text" required />
+            </br>
+            <label>Department:</label>
+            <select id="formDept" required>
+                <option value="">--Select One--</option>
+                <option value="Administration">Administration</option>
+                <option value="Channel Sales">Channel Sales</option>
+                <option value="Corporate Marketing">Corporate Marketing</option>
+                <option value="Customer Success">Customer Success</option>
+                <option value="Enablement">Enablement</option>
+                <option value="Field Sales">Field Sales</option>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Information Systems">Information Systems</option>
+                <option value="Product Development">Product Development</option>
+                <option value="Product Management">Product Management</option>
+                <option value="Product Support">Product Support</option>
+                <option value="Quality Assurance">Quality Assurance</option>
+                <option value="Sales Development">Sales Development</option>
+                <option value="Strategic Growth">Strategic Growth</option>
+                <option value="Systems Engineering">Systems Engineering</option>
+            </select>
+            </br>
+            <label>Email:</label> <input id="formEmail" placeholder="vasioneer@vasion.com" type="email" />
+            </br>
+            <label>Number:</label> <input id="formMob" type="tel" placeholder="555-555-5555" />
+            </br>
+            <label>Company:</label><select id="formCompany">
+                <option value="vasion">Vasion</option>
+                <option value="printerlogic">Printerlogic</option>
+                <option value="Printerlogic - Germany">Printerlogic - Germany</option>
+            </select>
+            <br />
+            <label>Business Address:</label> <input id="formAddress" type="text"
+                placeholder="432 S Tech Ridge Dr St.George, UT" />
+            </br>
+            <label>Your Linkedin URL:</label> <input id="formLinkedIn" type="url"
+                placeholder="https://www.linkedin.com/company/vasion-software/" />
+            </br>
+            <button onclick="updateInfo()" type="button" id="update"
+                style="background-color: orange; margin-top:20px; margin-bottom:20px;border-radius:5px;padding: 5px 5px;color:#1f1f1f; border: none;">Generate</button>
+        </form>
+        <!-- Signiture Mock -->
+        <div class="generatedSig">
+            <h2>Step 2: Copy Signature</h2>
+            <div id="signature">
+                <table cellpadding="1" cellspacing="0" border="0">
+                    <tbody>
+                        <tr>
+                            <table cellpadding='0' cellspacing='0' border="0">
+                                <tr>
+                                    <td id="name" scope="col"
+                                        style="border-right: orangered 1px solid; color:#3f0f3f; padding-right: 25px;padding-bottom: 5px; font-size: 25px; font-weight: bold;">
+                                        Fellow Vasioneer
+                                    </td>
+                                    <td id="mobile" scope="col"
+                                        style="padding-left: 35px;font-size: 15px;padding-bottom: 5px">
+                                        <a href="#" style="color: #666666">555-555-5555</a>
+                                    <td>
+                                </tr>
+                                <tr>
+                                    <td id="role" scope="col"
+                                        style="border-right: orangered 1px solid;color:#3f0f3f;padding-right: 25px;padding-bottom: 5px;font-size: 15px; ">
+                                        Astronaut
+                                    </td>
+                                    <td id="email" scope="col"
+                                        style="padding-left: 35px;font-size: 15px; padding-bottom: 5px">
+                                        <a href="mailto:bryce.drawe@vasion.com">vasioneer@vasion.com</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="department" scope="col"
+                                        style="border-right: orangered 1px solid;color:#3f0f3f;padding-right: 25px;padding-bottom: 5px; font-size: 15px; ">
+                                        Vasion
+                                    </td>
+                                    <td id="address" scope="col"
+                                        style="padding-left: 35px;font-size: 15px;padding-bottom: 5px">
+                                        432 S Tech Ridge Dr
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td scope="col" style="height:20px"></td>
+                                    <td scope="col" style="height:20px"></td>
+                                </tr>
+
+                                <!-- image -->
+
+                                <tr valign="bottom">
+                                    <td scope="col" valign="bottom" id="templateLogo"
+                                        style="border-top:orangered 1px solid; margin-top:10px">
+                                    </td>
+                                    <td scope="col" valign="bottom"
+                                        style="border-top:orangered 1px solid; margin-top:10px;">
+                                        <a id="linkedin" href="https://www.linkedin.com/company/vasion-software/">
+                                            <img data-class="external"
+                                                src="http://info.printerlogic.com/rs/338-HTA-134/images/Linkedin.png"
+                                                style="vertical-align: bottom; width: 30px; margin-left:250px;" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td scope="col" valign="bottom" id="euroCompliance"></td>
+                                </tr>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </br>
+            <button
+                style="background-color: orange; margin-top:20px; margin-bottom:20px;border-radius:5px;padding: 7px 7px;color:#1f1f1f; border: none; text-align: left;;"
+                id="copyBtn">Copy to Clipboard</button>
+        </div>
+        <div class="instructions">
+            <h2>Step 3: Add to G-mail</h2>
+            <p>
             <ol>
-                <li>Fill out the form below</li>
-                <li>Copy your personalized signature below</li>
                 <li>Open G-mail</li>
                 <li>In the top right,click "Settings" > See all Settings</li>
                 <li>Navigate to the signature section</li>
                 <li>Paste your signature into the signature text box</li>
                 <li>At the bottom of the page, click "Save Changes"</li>
             </ol>
-        </p>
-    </div>
-    <form>
-        <label>Name:</label> <input id="formName" placeholder="Fellow Vasioneer" type="text" required />
-        <label>Role:</label><input id="formRole" placeholder="Chief Business Officer" type="text" required />
-        <label>Department:</label><br/><select id="formDept" required>
-            <option value="">--Select One--</option>
-            <option value="Administration">Administration</option>
-            <option value="Channel Sales">Channel Sales</option>
-            <option value="Corporate Marketing">Corporate Marketing</option>
-            <option value="Customer Success">Customer Success</option>
-            <option value="Enablement">Enablement</option>
-            <option value="Field Sales">Field Sales</option>
-            <option value="Human Resources">Human Resources</option>
-            <option value="Information Systems">Information Systems</option>
-            <option value="Product Development">Product Development</option>
-            <option value="Product Management">Product Management</option>
-            <option value="Product Support">Product Support</option>
-            <option value="Quality Assurance">Quality Assurance</option>
-            <option value="Sales Development">Sales Development</option>
-            <option value="Strategic Growth">Strategic Growth</option>
-            <option value="Systems Engineering">Systems Engineering</option>
-        </select>
-            </br>
-        <label>Email:</label> <input id="formEmail" placeholder="vasioneer@vasion.com" type="email" />
-        <label>Number:</label> <input id="formMob" type="tel" placeholder="555-555-5555" />
-        <label>Company:</label><br/><select id="formCompany">
-            <option value="vasion">Vasion</option>
-            <option value="printerlogic">Printerlogic</option>
-            <option value="Printerlogic - Germany">Printerlogic - Germany</option>
-        </select>
-        <br/>
-        <label>Business Address:</label> <input id="formAddress" type="text" placeholder="432 S Tech Ridge Dr." />
-        <label>Your Linkedin URL:</label> <input id="formLinkedIn" type="url" placeholder="https://www.linkedin.com/company/vasion-software/" />
-        <button onclick="updateInfo()" type="button" id="update"
-        style="background-color: orange; margin-top:20px; margin-bottom:20px;border-radius:5px;padding: 5px 5px;color:#1f1f1f;">Generate</button>
-    </form>
-    <!-- Signiture Mock -->
-    <h3>Here is your signature:</h3>
-    <div id="signature">
-        <table cellpadding="1" cellspacing="0" border="0">
-            <tbody>
-                <tr>
-                    <table cellpadding='0' cellspacing='0' border="0">
-                        <tr>
-                            <td id="name" scope="col" style="border-right: orangered 1px solid; color:#3f0f3f; padding-right: 25px;padding-bottom: 5px; font-size: 25px; font-weight: bold;">
-                                Fellow Vasioneer
-                            </td>
-                            <td id="mobile" scope="col" style="padding-left: 35px;font-size: 15px;padding-bottom: 5px">
-                                <a href="#" style="color: #666666">555-555-5555</a>
-                                <td>
-                                </tr>
-                                <tr>
-                                    <td id="role" scope="col" style="border-right: orangered 1px solid;color:#3f0f3f;padding-right: 25px;padding-bottom: 5px;font-size: 15px; ">
-                                        Astronaut
-                                    </td>
-                                    <td id="email" scope="col" style="padding-left: 35px;font-size: 15px; padding-bottom: 5px">
-                                        <a href="mailto:bryce.drawe@vasion.com">vasioneer@vasion.com</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td id="department" scope="col"style="border-right: orangered 1px solid;color:#3f0f3f;padding-right: 25px;padding-bottom: 5px; font-size: 15px; ">
-                                        Vasion
-                                    </td>
-                                    <td  id="address" scope="col" style="padding-left: 35px;font-size: 15px;padding-bottom: 5px">
-                                        432 S Tech Ridge Dr
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td  scope="col" style="height:20px"></td>
-                                    <td scope="col" style="height:20px"></td>
-                                </tr>
-                                
-                                <!-- image -->
-                                
-                                <tr valign="bottom">
-                                    <td scope="col" valign="bottom" id="templateLogo" style="border-top:orangered 1px solid; margin-top:10px">
-                                    </td>
-                                    <td scope="col" valign="bottom"style="border-top:orangered 1px solid; margin-top:10px;">
-                                        <a  id="linkedin"href="https://www.linkedin.com/company/vasion-software/">
-                                            <img
-                                            data-class="external"
-                                            src="http://info.printerlogic.com/rs/338-HTA-134/images/Linkedin.png"
-                                            style="vertical-align: bottom; width: 30px; margin-left:250px;"
-                                            />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td scope="col" valign="bottom" id="euroCompliance"></td>
-                                    </tr>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <button  id="copyBtn">Copy to Clipboard</button>
+            </p>
+        </div>
+    </main>
+
     <script>
-    let copyBtn = document.getElementById('copyBtn');
-    let name = document.getElementById("formName");
-    let signature = document.getElementById("signature");
-    let role = document.getElementById("formRole");
-    let address = document.getElementById("formAddress");
-    let email = document.getElementById("formEmail");
-    let linkedIn = document.getElementById("formLinkedIn");
-    let company = document.getElementById("formCompany")
-    let mob = document.getElementById("formMob");
-    let codeArea = document.getElementById("codeArea");
-    let department = document.getElementById("formDept")
+        let copyBtn = document.getElementById('copyBtn');
+        let name = document.getElementById("formName");
+        let signature = document.getElementById("signature");
+        let role = document.getElementById("formRole");
+        let address = document.getElementById("formAddress");
+        let email = document.getElementById("formEmail");
+        let linkedIn = document.getElementById("formLinkedIn");
+        let company = document.getElementById("formCompany")
+        let mob = document.getElementById("formMob");
+        let codeArea = document.getElementById("codeArea");
+        let department = document.getElementById("formDept")
 
-  
-      copyBtn.addEventListener('click',() => {
-        const selection = window.getSelection();
-        const range = document.createRange();
-        range.selectNodeContents(signature);
-        selection.removeAllRanges();
-        selection.addRange(range);
 
-        try {
-            document.execCommand('copy');
+        copyBtn.addEventListener('click', () => {
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(signature);
             selection.removeAllRanges();
+            selection.addRange(range);
 
-            copyBtn.textContent = "Copied!"
-        } catch(e){
-            console.log(e);
-        }
-      })      
-      
-    
-    
-    function updateInfo() {
-      document.getElementById("name").innerHTML = name.value;
-      document.getElementById("role").innerHTML = role.value;
-      document.getElementById("department").innerHTML = department.value;
-      document.getElementById("address").innerHTML = address.value;
-      document.getElementById("email").innerHTML = email.value;
-      document.getElementById("email").href = "mailto:" + email.value;
-      document.getElementById("linkedin").href =  linkedIn.value;
+            try {
+                document.execCommand('copy');
+                selection.removeAllRanges();
+
+                copyBtn.textContent = "Copied!"
+            } catch (e) {
+                console.log(e);
+            }
+        })
 
 
-      if (company.value === "vasion") {
-          document.getElementById("templateLogo").innerHTML= `<a href="https://vasion.com"><img id="templateLogo" width="250" data-class="external"
+
+        function updateInfo() {
+            document.getElementById("name").innerHTML = name.value;
+            document.getElementById("role").innerHTML = role.value;
+            document.getElementById("department").innerHTML = department.value;
+            document.getElementById("address").innerHTML = address.value;
+            document.getElementById("email").innerHTML = email.value;
+            document.getElementById("email").href = "mailto:" + email.value;
+            document.getElementById("linkedin").href = linkedIn.value;
+
+
+            if (company.value === "vasion") {
+                document.getElementById("templateLogo").innerHTML = `<a href="https://vasion.com"><img id="templateLogo" width="250" data-class="external"
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion Logo.png" alt="logo"
                                     style="vertical-align:bottom ; padding-top: 15px;" /></a>`;
-                                    document.getElementById("euroCompliance").innerHTML = ``                          
-      } else if ( company.value === "Printerlogic - Germany"){
-          document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`                          
-          document.getElementById('templateLogo').innerHTML = `<a href="https://www.printerlogic.com"><img id="templateLogo" width="250" data-class="external"
+                document.getElementById("euroCompliance").innerHTML = ``
+            } else if (company.value === "Printerlogic - Germany") {
+                document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`
+                document.getElementById('templateLogo').innerHTML = `<a href="https://www.printerlogic.com"><img id="templateLogo" width="250" data-class="external"
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png" alt="logo"
                                     style="vertical-align:bottom ; padding-top: 15px;" /></a>`
-      } else {
-        document.getElementById('templateLogo').innerHTML = `<a href="https://www.printerlogic.com"><img id="templateLogo" width="250" data-class="external"
+            } else {
+                document.getElementById('templateLogo').innerHTML = `<a href="https://www.printerlogic.com"><img id="templateLogo" width="250" data-class="external"
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png" alt="logo"
                                     style="vertical-align:bottom ; padding-top: 15px;" /></a>`
-                                    document.getElementById("euroCompliance").innerHTML = ``
-      };
+                document.getElementById("euroCompliance").innerHTML = ``
+            };
 
-      if(address.value === '') {
-          document.getElementById('address').innerHTML = `<p>432 S Tech Ridge Dr St.George, UT</p>`
-          
-      }
+            if (address.value === '') {
+                document.getElementById('address').innerHTML = `<p></p>`
 
-      if (mob.value > "") {
-        document.getElementById("mobile").innerHTML = mob.value;
-      } else {
-        if (mob.value > "") {
-          document.getElementById("mobile").innerHTML = `<a href="tel:${mob.value}" style ="color: #03509c"> Tel: ${mob.value}</a>/>`;
-        } else {
-          document.getElementById("mobile").innerHTML = "";
+            };
+
+            if (mob.value > "") {
+                document.getElementById("mobile").innerHTML = mob.value;
+            } else {
+                if (mob.value > "") {
+                    document.getElementById("mobile").innerHTML = `<a href="tel:${mob.value}" style ="color: #03509c"> Tel: ${mob.value}</a>/>`;
+                } else {
+                    document.getElementById("mobile").innerHTML = "";
+                }
+            }
+
         }
-      }
-      
-    }
-    
+
     </script>
 </body>
+
 </html>
