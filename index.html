@@ -9,40 +9,47 @@
     <!-- <link rel="stylesheet" href="style.css"> -->
     <!-- <link rel="text/javascript" href="index.js"> -->
     <style>
+        * {
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
         .mobileMessage {
             display: none
         }
-
-        body {
-            color: #666666;
-            margin-left: 100px;
-            margin-right: 100px;
+        h1 {
             font-family: sans-serif;
+            font-weight:100;
         }
+        
 
         main {
             display: flex;
             flex-direction:row;
-            flex-wrap: nowrap;
-            justify-content: start;
-            align-content: space-between;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* background-color: lightgrey; */
+            align-content: center;
+            max-width: 2000px;
             gap: 40px;
+            color: #666666;
+            margin:auto;
+            padding: 10px;
+            border-radius:5px;
+            font-family: sans-serif;
         }
-
         .formFields {
-            width: 33%;
+           align-self: auto;
+           min-width: 30%;
         }
 
         .instructions {
-            width: 33%;
+            align-self: auto;
+            min-width: 30%;
         }
 
         .generatedSig {
-            width: 33%;
-        }
-
-        form {
-            margin: 5px;
+            align-self: auto;
+            min-width: 30%;
         }
         button {
             padding: 10px;
@@ -60,21 +67,7 @@
             font-size: 15px
         }
 
-        table {
-            padding: 10px;
-            border-collapse: collapse;
-            margin-left: 15px;
-        }
 
-        .bottom-half {
-            border-top: solid orangered 1px;
-            margin-top: 20px;
-        }
-
-        textarea {
-            width: 100%;
-            height: 200px;
-        }
 
         input {
             margin-top: 7px;
@@ -92,11 +85,10 @@
             padding: 7px;
             border-radius: 5px;
             border: lightgray 1px solid;
+            color: #666666;
         }
 
-        td {
-            padding-top: 5px;
-        }
+       
 
         a {
             color: #666666;
@@ -104,55 +96,18 @@
             text-decoration: none;
         }
 
-        #signature {
-            padding-top: 20px;
-            padding-bottom: 20px;
-            width: 50%;
-        }
-
-
-
+     
         #euroCompliance {
             font-size: 5px;
         }
 
-        #formCountry {
-            margin: 10px;
-        }
 
         ol {
             line-height: 35px;
         }
 
-        @media screen and (max-width: 1500px) {
-            main {
-                display: flex;
-                flex-direction: column;
-            }
-            select {
-                width: 52%;
-            }
-        }
+      
 
-        @media screen and (max-width: 980px) {
-            .mobileMessage {
-                display: inline-block;
-            }
-
-            main {
-                display: none;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .mobileMessage {
-                display: inline-block;
-            }
-
-            main {
-                display: none;
-            }
-        }
 
         @media screen and (max-width: 575px) {
             .mobileMessage {
@@ -167,16 +122,16 @@
 </head>
 
 <body>
+    
     <header>
         <img src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion Logo.png"
             style="width:200px;margin-top:15px;" />
     </header>
-    <h1 style="font:'Sans-serif';font-weight:100;">Vasion E-mail Signature Generator</h1>
+        <h1>Vasion E-mail Signature Generator</h1>
     <div class="mobileMessage">
         <h3>Please generate your signature on a desktop.</h3>
     </div>
     <main>
-
         <form class="formFields">
             <h2>Step 1: Fill out Form</h2>
             <label>Name:</label> </br><input id="formName" placeholder="John Doe" type="text" required />
@@ -216,7 +171,7 @@
             </select>
             <br />
             <label>Business Address:</label></br><input id="formAddress" type="text"
-                placeholder="432 S Tech Ridge Dr St.George, UT" />
+                placeholder="432 S Tech Ridge Dr St. George, UT" />
             </br>
             <label>Your Linkedin URL:</label></br><input id="formLinkedIn" type="url"
                 placeholder="https://www.linkedin.com/company/vasion-software/" />
@@ -227,7 +182,7 @@
         <div class="generatedSig">
             <h2>Step 2: Copy Signature</h2>
             <div id="signature">
-                <table cellpadding="1" cellspacing="0" border="0">
+                <table cellpadding="0" cellspacing="0" border="0">
                     <tbody>
                         <tr>
                             <table cellpadding='0' cellspacing='0' border="0">
@@ -237,13 +192,13 @@
                                         Fellow Vasioneer
                                     </td>
                                     <td id="mobile" scope="col"
-                                        style="padding-left: 35px;font-size: 15px;padding-bottom: 5px">
+                                        style="padding-left: 35px;font-size: 15px;">
                                         <a href="#" style="color: #666666">555-555-5555</a>
                                     <td>
                                 </tr>
                                 <tr>
                                     <td id="role" scope="col"
-                                        style="border-right: orangered 1px solid;color:#3f0f3f;padding-right: 25px;padding-bottom: 5px;font-size: 15px; ">
+                                        style="border-right: orangered 1px solid;color:#3f0f3f;padding-right: 25px;font-size: 15px; ">
                                         Astronaut
                                     </td>
                                     <td id="email" scope="col"
@@ -253,12 +208,12 @@
                                 </tr>
                                 <tr>
                                     <td id="department" scope="col"
-                                        style="border-right: orangered 1px solid;color:#3f0f3f;padding-right: 25px;padding-bottom: 5px; font-size: 15px; ">
+                                        style="border-right: orangered 1px solid;color:#3f0f3f;padding-right: 25px; font-size: 15px; ">
                                         Vasion
                                     </td>
                                     <td id="address" scope="col"
-                                        style="padding-left: 35px;font-size: 15px;padding-bottom: 5px">
-                                        432 S Tech Ridge Dr
+                                        style="padding-left: 35px;font-size: 15px;">
+                                        432 S Tech Ridge Dr St. George, UT
                                     </td>
                                 </tr>
                                 <tr>
@@ -270,7 +225,7 @@
 
                                 <tr valign="bottom">
                                     <td scope="col" valign="bottom" id="templateLogo"
-                                        style="border-top:orangered 1px solid; margin-top:10px">
+                                        style="border-top:orangered 1px solid; margin-top:7px">
                                     </td>
                                     <td scope="col" valign="bottom"
                                         style="border-top:orangered 1px solid; margin-top:10px;">
@@ -355,19 +310,19 @@
             if (company.value === "vasion") {
                 document.getElementById("templateLogo").innerHTML = `<a href="https://vasion.com"><img id="templateLogo" width="250" data-class="external"
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion Logo.png" alt="logo"
-                                    style="vertical-align:bottom ; padding-top: 15px;" /></a>`;
+                                    style="vertical-align:bottom ; padding-top: 10px;" /></a>`;
                 document.getElementById("euroCompliance").innerHTML = ``
 
             } else if (company.value === "Printerlogic - Germany") {
                 document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`
                 document.getElementById('templateLogo').innerHTML = `<a href="https://www.printerlogic.com"><img id="templateLogo" width="250" data-class="external"
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png" alt="logo"
-                                    style="vertical-align:bottom ; padding-top: 15px;" /></a>`
+                                    style="vertical-align:bottom ; padding-top: 10px;" /></a>`
 
             } else {
                 document.getElementById('templateLogo').innerHTML = `<a href="https://www.printerlogic.com"><img id="templateLogo" width="250" data-class="external"
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png" alt="logo"
-                                    style="vertical-align:bottom ; padding-top: 15px;" /></a>`
+                                    style="vertical-align:bottom ; padding-top: 10px;" /></a>`
                 document.getElementById("euroCompliance").innerHTML = ``
             };
 
