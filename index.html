@@ -8,10 +8,13 @@
     <!-- <link rel="stylesheet" href="style.css"> -->
     <!-- <link rel="text/javascript" href="index.js"> -->
     <style>
+        .mobileMessage{
+                display:none
+        }
         body {
             color: #666666;
-            margin-left: 300px;
-            margin-right: 300px;
+            margin-left: 100px;
+            margin-right: 100px;
             font-family: sans-serif;
         }
 
@@ -20,7 +23,7 @@
             flex-direction: row;
             flex-wrap: nowrap;
             justify-content: start;
-            align-content: stretch;
+            align-content: space-between;
             gap: 40px;
         }
 
@@ -39,7 +42,7 @@
         }
 
         form {
-            margin: 10px;
+            margin: 5px;
         }
 
         label {
@@ -64,7 +67,6 @@
         }
 
         input {
-            width: 75%;
             margin: 5px;
             padding: 10px;
             border-top: none;
@@ -97,7 +99,7 @@
         }
 
         #euroCompliance {
-            font-size: 6px;
+            font-size: 5px;
         }
 
         #formCountry {
@@ -107,6 +109,32 @@
         ol {
             line-height: 35px;
         }
+        @media screen and (max-width: 980px){
+            .mobileMessage {
+                display:inline-block;
+            }
+            main {
+                display: none;
+            }
+        }
+        @media screen and (max-width: 768px){
+            .mobileMessage {
+                display:inline-block;
+            }
+            main {
+                display: none;
+            }
+        }
+        @media screen and (max-width: 575px){
+            .mobileMessage {
+                display:inline-block;
+            }
+            main {
+                display: none;
+            }
+        }
+        
+
     </style>
 </head>
 
@@ -116,7 +144,11 @@
             style="width:200px;margin-top:15px;" />
     </header>
     <h1 style="font:'Sans-serif';font-weight:100;">Vasion E-mail Signature Generator</h1>
+    <div class="mobileMessage">
+        <h3>Please generate your signature on a desktop.</h3>
+    </div>
     <main>
+        
         <form class="formFields">
             <h2>Step 1: Fill out Form</h2>
             <label>Name:</label> <input id="formName" placeholder="Fellow Vasioneer" type="text" required />
