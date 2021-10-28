@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,9 +9,10 @@
     <!-- <link rel="stylesheet" href="style.css"> -->
     <!-- <link rel="text/javascript" href="index.js"> -->
     <style>
-        .mobileMessage{
-                display:none
+        .mobileMessage {
+            display: none
         }
+
         body {
             color: #666666;
             margin-left: 100px;
@@ -20,7 +22,7 @@
 
         main {
             display: flex;
-            flex-direction: row;
+            flex-direction:row;
             flex-wrap: nowrap;
             justify-content: start;
             align-content: space-between;
@@ -29,7 +31,6 @@
 
         .formFields {
             width: 33%;
-            padding-left: 40px;
         }
 
         .instructions {
@@ -42,6 +43,16 @@
 
         form {
             margin: 5px;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            background-color: #FF5A00;
+            margin-top:10px;
+            border-radius: 7px;
+            color: white;
+            font-size: 20px;
+            
         }
 
         label {
@@ -66,11 +77,21 @@
         }
 
         input {
-            margin: 5px;
-            padding: 10px;
-            border-top: none;
-            border-left: none;
-            border-right: none;
+            margin-top: 7px;
+            margin-bottom: 7px;
+            padding: 7px;
+            border-radius: 5px;
+            border: lightgray 1px solid;
+            width: 100%;
+        }
+
+        select {
+            width: auto;
+            margin-top: 7px;
+            margin-bottom: 7px;
+            padding: 7px;
+            border-radius: 5px;
+            border: lightgray 1px solid;
         }
 
         td {
@@ -89,13 +110,7 @@
             width: 50%;
         }
 
-        #formCompany {
-            margin: 10px;
-        }
 
-        #formDept {
-            margin: 10px;
-        }
 
         #euroCompliance {
             font-size: 5px;
@@ -108,39 +123,46 @@
         ol {
             line-height: 35px;
         }
-        @media screen and (max-width: 1400px){
+
+        @media screen and (max-width: 1400px) {
             main {
                 display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
+                flex-direction: column;
+            }
+            select {
+                width: 52%;
             }
         }
-        @media screen and (max-width: 980px){
-            .mobileMessage {
-                display:inline-block;
-            }
-            main {
-                display: none;
-            }
-        }
-        @media screen and (max-width: 768px){
-            .mobileMessage {
-                display:inline-block;
-            }
-            main {
-                display: none;
-            }
-        }
-        @media screen and (max-width: 575px){
-            .mobileMessage {
-                display:inline-block;
-            }
-            main {
-                display: none;
-            }
-        }
-        
 
+        @media screen and (max-width: 980px) {
+            .mobileMessage {
+                display: inline-block;
+            }
+
+            main {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .mobileMessage {
+                display: inline-block;
+            }
+
+            main {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 575px) {
+            .mobileMessage {
+                display: inline-block;
+            }
+
+            main {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -154,14 +176,15 @@
         <h3>Please generate your signature on a desktop.</h3>
     </div>
     <main>
-        
+
         <form class="formFields">
             <h2>Step 1: Fill out Form</h2>
-            <label>Name:</label> <input id="formName" placeholder="Fellow Vasioneer" type="text" required />
+            <label>Name:</label> </br><input id="formName" placeholder="Fellow Vasioneer" type="text" required />
             </br>
-            <label>Role:</label><input id="formRole" placeholder="Chief Business Officer" type="text" required />
+            <label>Role:</label></br><input id="formRole" placeholder="Chief Business Officer" type="text" required />
             </br>
             <label>Department:</label>
+            </br>
             <select id="formDept" required>
                 <option value="">--Select One--</option>
                 <option value="Administration">Administration</option>
@@ -181,24 +204,24 @@
                 <option value="Systems Engineering">Systems Engineering</option>
             </select>
             </br>
-            <label>Email:</label> <input id="formEmail" placeholder="vasioneer@vasion.com" type="email" />
+            <label>Email:</label></br> <input id="formEmail" placeholder="vasioneer@vasion.com" type="email" />
             </br>
-            <label>Number:</label> <input id="formMob" type="tel" placeholder="555-555-5555" />
+            <label>Number:</label></br> <input id="formMob" type="tel" placeholder="555-555-5555" />
             </br>
-            <label>Company:</label><select id="formCompany">
+            <label>Company:</label></br><select id="formCompany">
+                <option value="">--Select One--</option>
                 <option value="vasion">Vasion</option>
                 <option value="printerlogic">Printerlogic</option>
                 <option value="Printerlogic - Germany">Printerlogic - Germany</option>
             </select>
             <br />
-            <label>Business Address:</label> <input id="formAddress" type="text"
+            <label>Business Address:</label></br><input id="formAddress" type="text"
                 placeholder="432 S Tech Ridge Dr St.George, UT" />
             </br>
-            <label>Your Linkedin URL:</label> <input id="formLinkedIn" type="url"
+            <label>Your Linkedin URL:</label></br><input id="formLinkedIn" type="url"
                 placeholder="https://www.linkedin.com/company/vasion-software/" />
             </br>
-            <button onclick="updateInfo()" type="button" id="update"
-                style="background-color: orange; margin-top:20px; margin-bottom:20px;border-radius:5px;padding: 5px 5px;color:#1f1f1f; border: none;">Generate</button>
+            <button onclick="updateInfo()" type="button" id="update">Generate</button>
         </form>
         <!-- Signiture Mock -->
         <div class="generatedSig">
@@ -255,6 +278,7 @@
                                             <img data-class="external"
                                                 src="http://info.printerlogic.com/rs/338-HTA-134/images/Linkedin.png"
                                                 style="vertical-align: bottom; width: 30px; margin-left:250px;" />
+                                        </a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -265,9 +289,7 @@
                 </table>
             </div>
             </br>
-            <button
-                style="background-color: orange; margin-top:20px; margin-bottom:20px;border-radius:5px;padding: 7px 7px;color:#1f1f1f; border: none; text-align: left;;"
-                id="copyBtn">Copy to Clipboard</button>
+            <button id="copyBtn">Copy to Clipboard</button>
         </div>
         <div class="instructions">
             <h2>Step 3: Add to G-mail</h2>
@@ -284,6 +306,7 @@
     </main>
 
     <script>
+        // form id
         let copyBtn = document.getElementById('copyBtn');
         let name = document.getElementById("formName");
         let signature = document.getElementById("signature");
@@ -309,6 +332,8 @@
                 selection.removeAllRanges();
 
                 copyBtn.textContent = "Copied!"
+                copyBtn.style.backgroundColor = "#4BB543"
+                copyBtn.style.color = "white"
             } catch (e) {
                 console.log(e);
             }
@@ -317,6 +342,7 @@
 
 
         function updateInfo() {
+            // document id
             document.getElementById("name").innerHTML = name.value;
             document.getElementById("role").innerHTML = role.value;
             document.getElementById("department").innerHTML = department.value;
@@ -331,11 +357,13 @@
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion Logo.png" alt="logo"
                                     style="vertical-align:bottom ; padding-top: 15px;" /></a>`;
                 document.getElementById("euroCompliance").innerHTML = ``
+
             } else if (company.value === "Printerlogic - Germany") {
                 document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`
                 document.getElementById('templateLogo').innerHTML = `<a href="https://www.printerlogic.com"><img id="templateLogo" width="250" data-class="external"
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png" alt="logo"
                                     style="vertical-align:bottom ; padding-top: 15px;" /></a>`
+
             } else {
                 document.getElementById('templateLogo').innerHTML = `<a href="https://www.printerlogic.com"><img id="templateLogo" width="250" data-class="external"
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png" alt="logo"
@@ -344,7 +372,7 @@
             };
 
             if (address.value === '') {
-                document.getElementById('address').innerHTML = `<p>432 S Tech Ridge Dr St.George, UT</p>`
+                document.getElementById('address').innerHTML = `<p>432 S Tech Ridge Dr St. George, UT</p>`
 
             };
 
@@ -357,6 +385,23 @@
                     document.getElementById("mobile").innerHTML = "";
                 }
             }
+
+            if (linkedIn.value === "") {
+                document.getElementById("linkedin").innerHTML =
+                    `<a id="linkedin" href="https://www.linkedin.com/company/vasion-software/">
+                                            <img data-class="external"
+                                                src="http://info.printerlogic.com/rs/338-HTA-134/images/Linkedin.png"
+                                                style="vertical-align: bottom; width: 30px; margin-left:250px;" />
+                                        </a>`
+            } else {
+                `<a id="linkedin" href=${linkedIn.value}>
+                                            <img data-class="external"
+                                                src="http://info.printerlogic.com/rs/338-HTA-134/images/Linkedin.png"
+                                                style="vertical-align: bottom; width: 30px; margin-left:250px;" />
+                                        </a>`
+            }
+
+
 
         }
 
