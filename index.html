@@ -116,9 +116,30 @@
         ol {
             line-height: 35px;
         }
-        
+        @media screen and (max-width: 1030px){
+            main {
+                grid-template-columns: 2;
+                grid-template-rows: 3;
+            }
+            .formFields {
+            grid-column:1;
+            grid-row: 1;
+            
+            }
 
+            .instructions {
+            grid-column: 1;
+            grid-row: 3;
+            
+            }
 
+            .generatedSig {
+            grid-column: 1;
+            grid-row: 2;
+            
+            }
+
+        }
 
         @media screen and (max-width: 575px) {
             .mobileMessage {
