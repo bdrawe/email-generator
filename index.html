@@ -36,7 +36,7 @@
             max-width: 1000px;
             min-width: 768px;
             gap: 40px;
-            color: #666666;
+            color: #343434;
             margin: auto;
             padding: 10px;
             border-radius: 5px;
@@ -109,13 +109,18 @@
 
 
         #euroCompliance {
-            font-size: 5px;
+            font-size: 7px;
         }
 
 
         ol {
             line-height: 35px;
         }
+        td {
+            padding: 4px;
+            margin: 3px;
+        }
+       
         @media screen and (max-width: 1030px){
             main {
                 grid-template-columns: 2;
@@ -136,6 +141,7 @@
             .generatedSig {
             grid-column: 1;
             grid-row: 2;
+            width: 50%;
             
             }
 
@@ -170,27 +176,6 @@
             </br>
             <label>Role:</label></br><input id="formRole" placeholder="Chief Business Officer" type="text" required />
             </br>
-            <label>Department:</label>
-            </br>
-            <select id="formDept" required>
-                <option value="">--Select One--</option>
-                <option value="Administration">Administration</option>
-                <option value="Channel Sales">Channel Sales</option>
-                <option value="Corporate Marketing">Corporate Marketing</option>
-                <option value="Customer Success">Customer Success</option>
-                <option value="Enablement">Enablement</option>
-                <option value="Field Sales">Field Sales</option>
-                <option value="Human Resources">Human Resources</option>
-                <option value="Information Systems">Information Systems</option>
-                <option value="Product Development">Product Development</option>
-                <option value="Product Management">Product Management</option>
-                <option value="Product Support">Product Support</option>
-                <option value="Quality Assurance">Quality Assurance</option>
-                <option value="Sales Development">Sales Development</option>
-                <option value="Strategic Growth">Strategic Growth</option>
-                <option value="Systems Engineering">Systems Engineering</option>
-            </select>
-            </br>
             <label>Email:</label></br> <input id="formEmail" placeholder="vasioneer@vasion.com" type="email" />
             </br>
             <label>Number:</label></br> <input id="formMob" type="tel" placeholder="555-555-5555" />
@@ -198,16 +183,9 @@
             <label>Company:</label></br><select id="formCompany">
                 <option value="">--Select One--</option>
                 <option value="vasion">Vasion</option>
-                <option value="printerlogic">Printerlogic</option>
                 <option value="Printerlogic - Germany">Printerlogic - Germany</option>
             </select>
-            <br />
-            <label>Business Address:</label></br><input id="formAddress" type="text"
-                placeholder="432 S Tech Ridge Dr St. George, UT" />
-            </br>
-            <label>Your Linkedin URL:</label></br><input id="formLinkedIn" type="url"
-                placeholder="https://www.linkedin.com/company/vasion-software/" />
-            </br>
+            </br> 
             <button onclick="updateInfo()" type="button" id="update">Generate</button>
         </form>
         <!-- Signiture Mock -->
@@ -219,56 +197,22 @@
                         <tr>
                             <table cellpadding='0' cellspacing='0' border="0">
                                 <tr>
-                                    <td id="name" scope="col"
-                                        style="border-right: orangered 1px solid; color:#3f0f3f; padding-right: 25px;padding-bottom: 5px; font-size: 25px; font-weight: bold;">
-                                        Fellow Vasioneer
-                                    </td>
-                                    <td id="mobile" scope="col" style="padding-left: 35px;font-size: 15px;">
-                                        <a href="#" style="color: #666666">555-555-5555</a>
-                                    <td>
+                                    <td id="name" scope="col">Fellow Vasioneer</td>
+                                    <td id="role" scope="col">Astronaut</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td style=" padding-top:9px;"scope="col" colspan="3" id="templateLogo"></td>
                                 </tr>
                                 <tr>
-                                    <td id="role" scope="col"
-                                        style="border-right: orangered 1px solid;color:#666666;padding-right: 25px;font-size: 15px; ">
-                                        Astronaut
-                                    </td>
-                                    <td id="email" scope="col"
-                                        style="padding-left: 35px;font-size: 15px;color:#666666 !important; text-decoration: underline;padding-bottom: 5px">
-                                        <a href="mailto:bryce.drawe@vasion.com">vasioneer@vasion.com</a>
-                                    </td>
+                                    <td id="mobile" scope="col"><a href="#">555-555-5555</a></td>
+                                    <td id="email" scope="col"><a href="mailto:bryce.drawe@vasion.com">vasioneer@vasion.com</a></td>
+                                    <td scope="col"><a href="https://vasion.com">vasion.com</a></td>
                                 </tr>
                                 <tr>
-                                    <td id="department" scope="col"
-                                        style="border-right: orangered 1px solid;padding-right: 25px; font-size: 15px; ">
-                                        Vasion
-                                    </td>
-                                    <td id="address" scope="col" style="padding-left: 35px;font-size: 15px;">
-                                        432 S Tech Ridge Dr St. George, UT
-                                    </td>
+                                    <td scope="col" colspan="3" valign="bottom" id="euroCompliance"></td>
                                 </tr>
-                                <tr>
-                                    <td scope="col" style="height:20px"></td>
-                                    <td scope="col" style="height:20px"></td>
-                                </tr>
-
-                                <!-- image -->
-
-                                <tr valign="bottom">
-                                    <td scope="col" valign="bottom" id="templateLogo"
-                                        style="border-top:orangered 1px solid; margin-top:7px">
-                                    </td>
-                                    <td scope="col" valign="bottom"
-                                        style="border-top:orangered 1px solid; margin-top:10px;">
-                                        <a id="linkedin" href="https://www.linkedin.com/company/vasion-software/">
-                                            <img data-class="external"
-                                                src="http://info.printerlogic.com/rs/338-HTA-134/images/Linkedin.png"
-                                                style="vertical-align: bottom; width: 30px; margin-left:250px;" />
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td scope="col" valign="bottom" id="euroCompliance"></td>
-                                </tr>
+                                </table>
                         </tr>
                     </tbody>
                 </table>
@@ -296,13 +240,13 @@
         let name = document.getElementById("formName");
         let signature = document.getElementById("signature");
         let role = document.getElementById("formRole");
-        let address = document.getElementById("formAddress");
+        // let address = document.getElementById("formAddress");
         let email = document.getElementById("formEmail");
-        let linkedIn = document.getElementById("formLinkedIn");
+        // let linkedIn = document.getElementById("formLinkedIn");
         let company = document.getElementById("formCompany")
         let mob = document.getElementById("formMob");
         let codeArea = document.getElementById("codeArea");
-        let department = document.getElementById("formDept")
+        // let department = document.getElementById("formDept")
 
 
         copyBtn.addEventListener('click', () => {
@@ -328,42 +272,42 @@
 
         function updateInfo() {
             // document id
-            document.getElementById("name").innerHTML = name.value;
+            document.getElementById("name").innerHTML = name.value + " |";
             document.getElementById("role").innerHTML = role.value;
-            document.getElementById("department").innerHTML = department.value;
-            document.getElementById("address").innerHTML = address.value;
-            document.getElementById("email").innerHTML = email.value;
+            // document.getElementById("department").innerHTML = department.value;
+            // document.getElementById("address").innerHTML = address.value;
+            document.getElementById("email").innerHTML = email.value + " | ";
             document.getElementById("email").href = "mailto:" + email.value;
-            document.getElementById("linkedin").href = linkedIn.value;
+            // document.getElementById("linkedin").href = linkedIn.value;
             
             email.style.color = "#666666"
 
             if (company.value === "vasion") {
-                document.getElementById("templateLogo").innerHTML = `<a href="https://vasion.com"><img id="templateLogo" width="250" data-class="external"
-                                    src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion Logo.png" alt="logo"
-                                    style="vertical-align:bottom ; padding-top: 10px;" /></a>`;
+                document.getElementById("templateLogo").innerHTML = `<a href="https://vasion.com"><img id="templateLogo" width="175" data-class="external"
+                                    src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png" alt="logo"
+                                    style="vertical-align:bottom ; padding: 5px;" /></a>`;
                 document.getElementById("euroCompliance").innerHTML = ``
 
             } else if (company.value === "Printerlogic - Germany") {
                 document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`
-                document.getElementById('templateLogo').innerHTML = `<a href="https://www.printerlogic.com"><img id="templateLogo" width="250" data-class="external"
+                document.getElementById('templateLogo').innerHTML = `<a href="https://vasion.com"><img id="templateLogo" width="200" data-class="external"
                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png" alt="logo"
-                                    style="vertical-align:bottom ; padding-top: 10px;" /></a>`
+                                    style="vertical-align:bottom; padding:5px;" /></a>`
 
             } else {
-                document.getElementById('templateLogo').innerHTML = `<a href="https://www.printerlogic.com"><img id="templateLogo" width="250" data-class="external"
-                                    src="http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png" alt="logo"
-                                    style="vertical-align:bottom ; padding-top: 10px;" /></a>`
+                document.getElementById('templateLogo').innerHTML = `<a href="https://vasion.com"><img id="templateLogo" width="175" data-class="external"
+                                    src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png" alt="logo"
+                                    style="vertical-align:bottom ; padding: 5px;" /></a>`
                 document.getElementById("euroCompliance").innerHTML = ``
             };
 
-            if (address.value === '') {
-                document.getElementById('address').innerHTML = `<p>432 S Tech Ridge Dr St. George, UT</p>`
+            // if (address.value === '') {
+            //     document.getElementById('address').innerHTML = `<p>432 S Tech Ridge Dr St. George, UT</p>`
 
-            };
+            // };
 
             if (mob.value > "") {
-                document.getElementById("mobile").innerHTML = mob.value;
+                document.getElementById("mobile").innerHTML = mob.value + " | ";
             } else {
                 if (mob.value > "") {
                     document.getElementById("mobile").innerHTML = `<a href="tel:${mob.value}" style ="color: #03509c"> Tel: ${mob.value}</a>/>`;
@@ -372,20 +316,20 @@
                 }
             }
 
-            if (linkedIn.value === "") {
-                document.getElementById("linkedin").innerHTML =
-                    `<a id="linkedin" href="https://www.linkedin.com/company/vasion-software/">
-                                            <img data-class="external"
-                                                src="http://info.printerlogic.com/rs/338-HTA-134/images/Linkedin.png"
-                                                style="vertical-align: bottom; width: 30px; margin-left:250px;" />
-                                        </a>`
-            } else {
-                `<a id="linkedin" href=${linkedIn.value}>
-                                            <img data-class="external"
-                                                src="http://info.printerlogic.com/rs/338-HTA-134/images/Linkedin.png"
-                                                style="vertical-align: bottom; width: 30px; margin-left:250px;" />
-                                        </a>`
-            }
+            // if (linkedIn.value === "") {
+            //     document.getElementById("linkedin").innerHTML =
+            //         `<a id="linkedin" href="https://www.linkedin.com/company/vasion-software/">
+            //                                 <img data-class="external"
+            //                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/Linkedin.png"
+            //                                     style="vertical-align: bottom; width: 30px; margin-left:250px;" />
+            //                             </a>`
+            // } else {
+            //     `<a id="linkedin" href=${linkedIn.value}>
+            //                                 <img data-class="external"
+            //                                     src="http://info.printerlogic.com/rs/338-HTA-134/images/Linkedin.png"
+            //                                     style="vertical-align: bottom; width: 30px; margin-left:250px;" />
+            //                             </a>`
+            // }
         }
 
     </script>
