@@ -44,7 +44,7 @@
         }
 
         .formFields {
-            grid-column:1/ span 2;
+            grid-column:1/ div 2;
             grid-row: 1;
             
         }
@@ -190,8 +190,8 @@
                 <option value="Printerlogic - Germany">Printerlogic - Germany</option>
             </select>
             </br> 
-            <label>Image</label></br><input id="formImg" placeholder="Please place the URL of the image here" type="url" required />
-            </br>
+            <!-- <label>Image</label></br><input id="formImg" placeholder="Please place the URL of the image here" type="url" required />
+            </br> -->
             <button onclick="updateInfo()" type="button" id="update">Generate</button>
         </form>
         <!-- Signiture Mock -->
@@ -202,27 +202,35 @@
                     <tbody>
                         <tr>
                             <table cellpadding='0' cellspacing='0' border="0">
-                                <tr>
-                                    <td  scope="col" colspan="1">
+                                <!-- <tr>
+                                    <td  scope="col" coldiv="1">
                                         <img id="image" src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png" width='80'/>
                                     </td>
-                                </tr>
+                                </tr> -->
                                 <tr style="line-height:9px;">
-                                    <td id="name" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; text-align: left;">Fellow Vasioneer</td>
-                                    <td id="role" scope="col" colspan="3" style="text-align:left; padding-left: 7px;">Astronaut</td>
+                                    <div>
+                                        <span id="name" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; text-align: left;padding-right:7px">Fellow Vasioneer</span>
+                                        <span id="role" scope="col" colspan="3" style="text-align:left; padding-left: 7px;">Astronaut</span>
+                                    </div>
                                 </tr>
                                 
                                 <tr>
-                                    <td style=" padding-top:10px; padding-bottom: 10px;"scope="col" colspan="3" id="templateLogo"></td>
+                                    <div>
+                                        <a href="https://vasion.com"><img id="templateLogo" width="150" data-class="external"
+                                            src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png" alt="logo"
+                                            style="vertical-align:bottom ; padding-top: 15px; padding-bottom: 15px;" /></a>
+                                    </div>
+                                    <td style=" padding-top:10px; padding-bottom: 10px;"scope="col" colspan="3" id="templateLogo"></td> 
                                 </tr>
                                 <tr style="line-height:9px;">
-                                    
-                                    <td id="mobile" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; color: #343434"><a href="#">555-555-5555</a></td>
-                                    <td id="email" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; text-align: center;color: #343434"><a href="#">Email Me</a></td>
-                                    <td scope="col" style="text-align: center;color: #343434"><a href="https://vasion.com">vasion.com</a></td>
+                                    <div>
+                                        <span id="mobile" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; color: #343434; padding-right: 7px;"><a href="#">555-555-5555</a></span>
+                                        <span id="email" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; text-align: center;color: #343434; padding-right:7px;padding-left:7px;"><a href="#">Email Me</a></span>
+                                        <span scope="col" style="text-align: center;color: #343434; padding-left: 7px;"><a href="https://vasion.com">vasion.com</a></span>
+                                    </div>
                                 </tr>
                                 <tr>
-                                    <td scope="col" colspan="3" valign="bottom" id="euroCompliance"></td>
+                                    <span scope="col" coldiv="3" valign="bottom" id="euroCompliance"></span>   
                                 </tr>
                                 </table>
                         </tr>
@@ -248,12 +256,10 @@
 
     <script>
         // form id
-        let img = document.getElementById('formImg');
         let copyBtn = document.getElementById('copyBtn');
         let name = document.getElementById("formName");
         let signature = document.getElementById("signature");
         let role = document.getElementById("formRole");
-        // let image = document.getElementById("formImage")
         let email = document.getElementById("formEmail");
         let company = document.getElementById("formCompany")
         let mob = document.getElementById("formMob");
@@ -284,11 +290,11 @@
         function updateInfo() {
             document.getElementById("name").innerHTML = name.value;
             document.getElementById("role").innerHTML = role.value;
-            document.getElementById('image').src = img.value;
+            // document.getElementById('image').src = img.value;
             // document.getElementById("image").innerHTML = image.value;
             document.getElementById("email").innerHTML = `<a href="mailto:${email.value}">Email Me</a>`;
             // document.getElementById("email").href = "mailto:" + email.value;
-            console.log(img.value);
+            
             email.style.color = "#666666"
 
             // if(image.value === ""){
@@ -298,16 +304,12 @@
             // }
 
             if (company.value === "vasion") {
-                document.getElementById("templateLogo").innerHTML = `<a href="https://vasion.com"><img id="templateLogo" width="150" data-class="external"
-                                    src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png" alt="logo"
-                                    style="vertical-align:bottom ; padding: 5px;" /></a>`;
+                document.getElementById("templateLogo").src = 'http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png';
                 document.getElementById("euroCompliance").innerHTML = ``
 
             } else if (company.value === "Printerlogic - Germany") {
                 document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`
-                document.getElementById('templateLogo').innerHTML = `<a href="https://vasion.com"><img id="templateLogo" width="150" data-class="external"
-                                    src="http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png" alt="logo"
-                                    style="vertical-align:bottom; padding:5px;" /></a>`
+                document.getElementById('templateLogo').src = "http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png"
 
             } else {
                 document.getElementById('templateLogo').innerHTML = `<a href="https://vasion.com"><img id="templateLogo" width="150" data-class="external"
