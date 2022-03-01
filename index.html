@@ -183,9 +183,10 @@
             <label>Name:</label> </br><input id="formName" placeholder="John Doe" type="text" required />
             </br>
             <label>Role:</label></br><input id="formRole" placeholder="Chief Business Officer" type="text" required />
+            <!-- </br> -->
+            <!-- <label>Email:</label></br> <input id="formEmail" placeholder="vasioneer@vasion.com" type="email" /> -->
             </br>
-            <label>Email:</label></br> <input id="formEmail" placeholder="vasioneer@vasion.com" type="email" />
-            </br>
+            <label>LinkedIn:</label></br> <input id="formLinkedIn" type="url" placeholder="https://www.linkedin.com/company/vasion-software/"/>
             <label>Number:</label></br> <input id="formMob" type="tel" placeholder="555-555-5555" />
             </br>
             <label>Company:</label></br><select id="formCompany">
@@ -229,14 +230,14 @@
                                 <tr style="line-height:9px;">
                                     <div>
                                         <span id="mobile" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; color: #343434; padding-right: 7px;"><a href="#">555-555-5555</a></span>
-                                        <span id="email" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; text-align: center;color: #343434; padding-right:7px;padding-left:7px;"><a href="#">Email Me</a></span>
+                                        <span id="linkedIn" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; text-align: center;color: #343434; padding-right:7px;padding-left:7px;"><a href="https://www.linkedin.com/company/vasion-software/">Let's Connect on LinkedIn</a></span>
                                         <span scope="col" style="text-align: center;color: #343434; padding-left: 7px;"><a href="https://vasion.com">vasion.com</a></span>
                                     </div>
                                 </tr>
                                 <tr>
                                     <span scope="col" coldiv="3" valign="bottom" id="euroCompliance"></span>   
                                 </tr>
-                                </table>
+                            </table>
                         </tr>
                     </tbody>
                 </table>
@@ -257,7 +258,6 @@
             </p>
         </div>
     </main>
-
     <script>
         // form id
         let img = document.getElementById('formImg');
@@ -265,7 +265,7 @@
         let name = document.getElementById("formName");
         let signature = document.getElementById("signature");
         let role = document.getElementById("formRole");
-        let email = document.getElementById("formEmail");
+        let linkedIn = document.getElementById("formLinkedIn");
         let company = document.getElementById("formCompany")
         let mob = document.getElementById("formMob");
         let codeArea = document.getElementById("codeArea");
@@ -288,6 +288,11 @@
             } catch (e) {
                 console.log(e);
             }
+            setTimeout(function() {
+                copyBtn.textContent = "Copy to Clipboard"
+                copyBtn.style.backgroundColor = "#FF5A00"
+                copyBtn.style.color = "white"
+            }, 2000)
         })
 
 
@@ -296,18 +301,24 @@
             document.getElementById("name").innerHTML = name.value;
             document.getElementById("role").innerHTML = role.value;
             document.getElementById('image').src = img.value;
-            document.getElementById("image").innerHTML = image.value;
-            document.getElementById("email").innerHTML = `<a href="mailto:${email.value}">Email Me</a>`;
-            // document.getElementById("email").href = "mailto:" + email.value;
+            // document.getElementById("image").innerHTML = image.value;
+            document.getElementById("linkedIn").href = linkedIn.value;
             
-            email.style.color = "#666666"
-
-            if(image.value === ""){
-                document.getElementById('image').innerHTML = `<img src="http://info.printerlogic.com/rs/338-HTA-134/images/Spark-72ppi.png" width='80'/>`
+           //linkedin stuff
+            if (linkedIn.value === ""){
+                document.getElementById("linkedIn").innerHTML =`<a id="linkedIn" href="https://www.linkedin.com/company/vasion-software/">Let's Connect on LinkedIn</a>`;
             } else {
-                document.getElementById('image').innerHTML = `<img src="${image.value}" width='80'/>`
+               document.getElementById('linkedIn').innerHTML =  `<a id="linkedIn" href="${linkedIn.value}">Let's Connect on LinkedIn</a>`
             }
 
+            //image value
+            if(img.value === ""){
+                document.getElementById('image').src= "http://info.printerlogic.com/rs/338-HTA-134/images/Spark-72ppi.png";
+            } else {
+                document.getElementById('image').src = img.value;
+            }
+
+            //logo for company
             if (company.value === "vasion") {
                 document.getElementById("templateLogo").src = 'http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png';
                 document.getElementById("euroCompliance").innerHTML = ``
@@ -323,15 +334,11 @@
                 document.getElementById("euroCompliance").innerHTML = ``
             };
 
-
-            if (mob.value > "") {
-                document.getElementById("mobile").innerHTML = mob.value;
+            //mobile info
+            if (mob.value === "") {
+                document.getElementById("mobile").innerHTML =  `<a href="tel:4356521288">435-652-1288</a>`;
             } else {
-                if (mob.value > "") {
-                    document.getElementById("mobile").innerHTML = `<a href="tel:${mob.value}" style ="color: #343434"> Tel: ${mob.value}</a>`;
-                } else {
-                    document.getElementById("mobile").innerHTML = `<a href="tel:4356521288">435-652-1288</a>`;
-                }
+                document.getElementById("mobile").innerHTML = `<a href="tel:${mob.value}" style ="color: #343434">${mob.value}</a>`;
             }
 
            
