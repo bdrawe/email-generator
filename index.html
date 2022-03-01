@@ -225,7 +225,7 @@
                                 <tr style="line-height:9px;">
                                     <div>
                                         <span id="mobile" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; color: #343434; padding-right: 7px; text-decoration: none;"><a href="#">555-555-5555</a></span>
-                                        <span id="email" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; text-align: center;color: #343434; padding-right:7px;padding-left:7px;text-decoration: none;"><a href="#">Email Me</a></span>
+                                        <span id="email" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; text-align: center;color: #343434; padding-right:7px;padding-left:7px;text-decoration: none;"><a href="#">first.last@vasion.com</a></span>
                                         <span scope="col" style="text-align: center;color: #343434; padding-left: 7px;text-decoration: none;"><a href="https://vasion.com">vasion.com</a></span>
                                     </div>
                                 </tr>
@@ -283,6 +283,11 @@
             } catch (e) {
                 console.log(e);
             }
+            setTimeout(function() {
+                copyBtn.textContent = "Copy to Clipboard"
+                copyBtn.style.backgroundColor = "#FF5A00"
+                copyBtn.style.color = "white"
+            }, 2000)
         })
 
 
