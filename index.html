@@ -191,7 +191,7 @@
             </br>
             <label>Company:</label></br><select id="formCompany">
                 <option value="">--Select One--</option>
-                <option value="Printerlogic">Printerlogic</option>
+                <option value="PrinterLogic">Printerlogic</option>
                 <option value="Printerlogic - Germany">Printerlogic - Germany</option>
                 <option value="Vasion">Vasion</option>
             </select>
@@ -318,23 +318,22 @@
             } else {
                 document.getElementById('image').src = img.value;
             }
-
-            //logo for company
-            if (company.value === "PrinterLogic") {
-                document.getElementById("templateLogo").src = 'http://info.printerlogic.com/rs/338-HTA-134/images/PL_Logo_for_Website.png';
-                document.getElementById("euroCompliance").innerHTML = ``
-
-            } else if (company.value === "Printerlogic - Germany") {
-                document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`
-                document.getElementById('templateLogo').src = "http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png"
-
-            } else(company.value ==="Vasion"){
-                document.getElementById('templateLogo').innerHTML = `<a href="https://vasion.com"><img id="templateLogo" width="150" data-class="external"
-                                    src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png" alt="logo"
-                                    style="vertical-align:bottom ; padding: 5px;" /></a>`
-                document.getElementById("euroCompliance").innerHTML = ``
-            };
-
+            switch(company.value) {
+                case "PrinterLogic":
+                    document.getElementById("templateLogo").src = "http://info.printerlogic.com/rs/338-HTA-134/images/PL_Logo_for_Website.png";
+                    console.log(templateLogo.src);
+                    document.getElementById("euroCompliance").innerHTML = ``;
+                    break;
+                case "Printerlogic - Germany":
+                    document.getElementById("templateLogo").src="http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png"
+                    console.log(templateLogo.src);
+                    document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`
+                    break;
+                default:
+                    document.getElementById("templateLogo").src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png";
+                    document.getElementById("euroCompliance").innerHTML = ``;
+                    break;
+            }
             //mobile info
             if (mob.value === "") {
                 document.getElementById("mobile").innerHTML =  `<a href="tel:4356521288">435-652-1288</a>`;
