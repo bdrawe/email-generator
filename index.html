@@ -191,8 +191,9 @@
             </br>
             <label>Company:</label></br><select id="formCompany">
                 <option value="">--Select One--</option>
-                <option value="vasion">Vasion</option>
+                <option value="printerlogic">Printerlogic</option>
                 <option value="Printerlogic - Germany">Printerlogic - Germany</option>
+                <option value="Vasion">Vasion</option>
             </select>
             </br> 
             <label>Image</label></br><input id="formImg" placeholder="Please place the URL of the image here" type="url" required />
@@ -319,8 +320,8 @@
             }
 
             //logo for company
-            if (company.value === "vasion") {
-                document.getElementById("templateLogo").src = 'http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png';
+            if (company.value === "PrinterLogic") {
+                document.getElementById("templateLogo").src = 'http://info.printerlogic.com/rs/338-HTA-134/images/PL_Logo_for_Website.png';
                 document.getElementById("euroCompliance").innerHTML = ``
 
             } else if (company.value === "Printerlogic - Germany") {
