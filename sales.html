@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vasion Email Signature Generator</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- <link rel="text/javascript" href="index.js"> -->
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: sans-serif;
+            color: #343434; 
+            background-color: white;
+
+
+        }
+        header {
+            text-align: center;
+        }
+
+        .mobileMessage {
+            display: none
+        }
+
+        h1 {
+            font-family: sans-serif;
+            font-weight: 100;
+            text-align: center;
+        }
+        
+
+        main {
+            display: grid;
+            grid-template-columns: 2;
+            grid-template-rows: 2;
+            /* background-color: lightgrey; */
+            max-width: 1000px;
+            min-width: 768px;
+            gap: 40px;
+            color: #343434;
+            margin: auto;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: sans-serif;
+        }
+
+        .formFields {
+            grid-column:1/ div 2;
+            grid-row: 1;
+            
+        }
+
+        .instructions {
+            grid-column: 1;
+            grid-row: 3;
+            
+        }
+
+        .generatedSig {
+            grid-column: 1;
+            grid-row: 2;
+            
+        }
+
+        button {
+            padding: 10px;
+            border: none;
+            background-color: #FF5A00;
+            margin-top: 10px;
+            border-radius: 7px;
+            color: white;
+            font-size: 20px;
+
+        }
+
+        label {
+            font-family: 'Archivo'sans-serif;
+            font-size: 15px
+        }
+
+
+
+        input {
+            margin-top: 7px;
+            margin-bottom: 7px;
+            padding: 7px;
+            border-radius: 5px;
+            border: lightgray 1px solid;
+            min-width: 100%;
+
+        }
+     
+        
+        #marketingAd {
+            margin-top: 5px;
+        }
+
+
+        select {
+            width: auto;
+            margin-top: 7px;
+            margin-bottom: 7px;
+            padding: 7px;
+            border-radius: 5px;
+            border: lightgray 1px solid;
+            color: #666666;
+        }
+
+
+
+        a {
+            color: #343434;
+            margin-top: 75px;
+            text-decoration: none;
+        }
+
+
+        #euroCompliance {
+            font-size: 7px;
+        }
+
+
+        ol {
+            line-height: 35px;
+        }
+        td {
+            padding: 4px;
+            margin: 3px;
+            text-align: left;
+            color:#343434;
+            white-space: nowrap;
+            width: fit-content;
+        }
+       
+        @media screen and (max-width: 1030px){
+            main {
+                grid-template-columns: 2;
+                grid-template-rows: 3;
+            }
+            .formFields {
+            grid-column:1;
+            grid-row: 1;
+            
+            }
+
+            .instructions {
+            grid-column: 1;
+            grid-row: 3;
+            
+            }
+
+            .generatedSig {
+            grid-column: 1;
+            grid-row: 2;
+            width: 50%; 
+            }
+        }
+
+        @media screen and (max-width: 575px) {
+            .mobileMessage {
+                display: inline-block;
+            }
+
+            main {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion Logo.png"
+            style="width:200px;margin-top:15px;" />
+    </header>
+    <h1>Vasion E-mail Signature Generator</h1>
+    <div class="mobileMessage">
+        <h3>Please generate your signature on a desktop.</h3>
+    </div>
+    <main>
+        <form class="formFields">
+            <h2>Step 1: Fill out Form</h2>
+            <!-- <label>Image URL</label></br><input id="formImage" type="text"/> -->
+            </br>
+            <label>Name:</label> </br><input id="formName" placeholder="John Doe" type="text" required />
+            </br>
+            <label>Role:</label></br><input id="formRole" placeholder="Chief Business Officer" type="text" required />
+            </br>
+            <label>Number:</label></br> <input id="formMob" type="tel" placeholder="555-555-5555" />
+            <label>Drift Chat Link:</label></br> <input id="formChat" placeholder="drift.com" type="url" />
+            <label>Schedule Link:</label></br> <input id="formSchedule" placeholder="Schedule Link" type="url" />
+            </br>
+            <label>LinkedIn:</label></br> <input id="formLinkedIn" type="url" placeholder="https://www.linkedin.com/company/vasion-software/"/>
+            </br>
+            <label>Company:</label></br><select id="formCompany">
+                <option value="">--Select One--</option>
+                <option value="printerlogic">PrinterLogic</option>
+                <option value="vasion">Vasion</option>
+                <option value="Printerlogic - Germany">Printerlogic - Germany</option>
+            </select>
+            </br> 
+            <label>Image:</label></br><input id="formImg" placeholder="Please place the URL of the image here" type="url" required />
+            </br>
+            <label>Would you like a Marketing collatoral added to the bottom of your signature? </label></br><select id="mktgCheck">
+                <option value="">--Select One --</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            </br>
+            <button onclick="updateInfo()" type="button" id="update">Generate</button>
+        </form>
+        <!-- Signiture Mock -->
+        <div class="generatedSig">
+            <h2>Step 2: Copy Signature</h2>
+            <div id="signature">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        <tr>
+                            <table cellpadding='0' cellspacing='0' border="0">
+                                <tr>
+                                    <div style="margin-bottom: 10px;">
+                                        <img id="image" src="http://info.printerlogic.com/rs/338-HTA-134/images/Spark-72ppi.png" width='80'/>
+                                    </div>
+                                </tr>
+                                <tr style="line-height:9px;">
+                                    <div>
+                                        <span id="name" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; text-align: left;padding-right:7px">Fellow Vasioneer</span>
+                                        <span id="role" scope="col" colspan="3" style="text-align:left; padding-left: 7px;padding-right: 7px;">Astronaut</span>
+                                        <span id="mobile" scope="col" colspan="2" style="border-left:#b5b5b5 solid 1px; color: #343434; padding-left: 7px;"><a href="#">555-555-5555</a></span>
+                                    </div>
+                                </tr>
+                                
+                                <tr>
+                                    <div>
+                                        <a href="https://printerlogic.com"><img id="templateLogo" width="200" data-class="external"
+                                            src="http://info.printerlogic.com/rs/338-HTA-134/images/pl-logo-purple.png" alt="logo"
+                                            style="vertical-align:bottom ; padding-top: 15px; padding-bottom: 15px;" /></a>
+                                    </div>
+                                    <td style=" padding-top:10px; padding-bottom: 10px;"scope="col" colspan="3" id="templateLogo"></td> 
+                                </tr>
+                                <tr style="line-height:9px;">
+                                    <div>
+                                        <span id="driftChat" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; text-align: center;color: #343434; padding-right:7px;padding-left:0px;"><a href="#">Chat with Me</a></span>
+                                        <span id="calendar"scope="col" style=" border-right:#b5b5b5 solid 1px; text-align: center;color: #343434; padding-left: 7px;padding-right:7px"><a href="#">Book with Me</a></span>
+                                        <span id="linkedIn" scope="col" colspan="1" style="text-align: center;color: #343434; padding-left:7px;"><a href="https://www.linkedin.com/company/vasion-software/">Connect on LinkedIn</a></span>
+                                    </div>
+                                </tr>
+                                <tr>
+                                    <span scope="col" coldiv="3" valign="bottom" id="euroCompliance"></span>  
+                                </tr>
+                                <tr>
+                                    <span scope="col" coldive="3" valign="bottom" id="marketingAd" style="margin-top: 10px;"></span> 
+                                </tr>
+                            </table>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </br>
+            <button id="copyBtn">Copy to Clipboard</button>
+        </div>
+        <div class="instructions">
+            <h2>Step 3: Add to G-mail</h2>
+            <p>
+            <ol>
+                <li>Open G-mail</li>
+                <li>In the top right,click "Settings" > See all Settings</li>
+                <li>Navigate to the signature section</li>
+                <li>Paste your signature into the signature text box</li>
+                <li>At the bottom of the page, click "Save Changes"</li>
+            </ol>
+            </p>
+        </div>
+    </main>
+    <script>
+        // form id
+        let img = document.getElementById('formImg');
+        let copyBtn = document.getElementById('copyBtn');
+        let name = document.getElementById("formName");
+        let signature = document.getElementById("signature");
+        let role = document.getElementById("formRole");
+        let linkedIn = document.getElementById("formLinkedIn");
+        let company = document.getElementById("formCompany")
+        let mob = document.getElementById("formMob");
+        let codeArea = document.getElementById("codeArea");
+        let formChat = document.getElementById("formChat");
+        let schedule = document.getElementById("formSchedule");
+        let mktgAd = document.getElementById('mktgCheck');
+        
+
+        copyBtn.addEventListener('click', () => {
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(signature);
+            selection.removeAllRanges();
+            selection.addRange(range);
+
+            try {
+                document.execCommand('copy');
+                selection.removeAllRanges();
+
+                copyBtn.textContent = "Copied!"
+                copyBtn.style.backgroundColor = "#4BB543"
+                copyBtn.style.color = "white"
+            } catch (e) {
+                console.log(e);
+            }
+            setTimeout(function() {
+                copyBtn.textContent = "Copy to Clipboard"
+                copyBtn.style.backgroundColor = "#FF5A00"
+                copyBtn.style.color = "white"
+            }, 2000)
+        })
+
+
+
+        function updateInfo() {
+            document.getElementById("name").innerHTML = name.value;
+            document.getElementById("role").innerHTML = role.value;
+            document.getElementById('image').src = img.value;
+            // document.getElementById("linkedIn").href = linkedIn.value;
+            document.getElementById('driftChat').innerHTML = `<a href="${formChat.value}" style="color:#343434">Chat with Me</a>`;
+            document.getElementById('calendar').innerHTML = `<a href="${schedule.value}" style="color:#343434">Book with Me</a>`;
+
+            
+
+            // document.getElementById("calendar").href = schedule.value;
+            document.getElementById("mobile").innerHTML = `<a href="tel:${mob.value}" style ="color: #343434">${mob.value}</a>`;
+            //marketing advertisement
+            console.log(mktgAd.value);
+            if(mktgAd.value === 'true') {
+                document.getElementById('marketingAd').innerHTML = `<a href="https://try.printerlogic.com/protect-your-org-from-print-nightmare/" target="_blank"><img style="padding-top:7px;" width="500" src="http://info.printerlogic.com/rs/338-HTA-134/images/print-nightmare-webinar-970x90-1%4072x-100.jpg" alt="marketing ad"/></a>`;
+            } else {
+                document.getElementById('marketingAd').innerHTML = '';
+            }
+
+           //linkedin stuff
+            if (linkedIn.value === ""){
+                document.getElementById("linkedIn").innerHTML =`<a id="linkedIn" href="https://www.linkedin.com/company/vasion-software/">Connect on LinkedIn</a>`;
+            } else {
+               document.getElementById('linkedIn').innerHTML =  `<a id="linkedIn" href="${linkedIn.value}">Connect on LinkedIn</a>`
+            }
+
+            //image value
+            if(img.value === ""){
+                document.getElementById('image').src= "http://info.printerlogic.com/rs/338-HTA-134/images/Spark-72ppi.png";
+            } else {
+                document.getElementById('image').src = img.value;
+            }
+
+            //logo for company
+            if (company.value === "printerlogic") {
+                document.getElementById("templateLogo").src = 'http://info.printerlogic.com/rs/338-HTA-134/images/pl-logo-purple.png';
+                document.getElementById("euroCompliance").innerHTML = ``
+
+            } else if (company.value === "Printerlogic - Germany") {
+                document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`
+                document.getElementById('templateLogo').src = "http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png"
+
+            } else {
+                document.getElementById('templateLogo').innerHTML = `<a href="https://vasion.com"><img id="templateLogo" width="150" data-class="external"
+                                    src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png" alt="logo"
+                                    style="vertical-align:bottom ; padding: 5px;" /></a>`
+                document.getElementById("euroCompliance").innerHTML = ``
+            };
+
+            //mobile info
+            // if (mob.value === "") {
+            //     document.getElementById("mobile").innerHTML =  `<a href="tel:4356521288">435-652-1288</a>`;
+            // } else {
+            //     document.getElementById("mobile").innerHTML = `<a href="tel:${mob.value}" style ="color: #343434">${mob.value}</a>`;
+            // }
+
+           
+        }
+
+    </script>
+</body>
+
+</html>
