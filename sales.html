@@ -198,9 +198,9 @@
             </br>
             <label>Company:</label></br><select id="formCompany">
                 <option value="">--Select One--</option>
-                <option value="printerlogic">PrinterLogic</option>
-                <option value="vasion">Vasion</option>
+                <option value="PrinterLogic">Printerlogic</option>
                 <option value="Printerlogic - Germany">Printerlogic - Germany</option>
+                <option value="Vasion">Vasion</option>
             </select>
             </br> 
             <label>Image:</label></br><input id="formImg" placeholder="Please place the URL of the image here" type="url" required />
@@ -331,9 +331,9 @@
             // document.getElementById("calendar").href = schedule.value;
             document.getElementById("mobile").innerHTML = `<a href="tel:${mob.value}" style ="color: #343434">${mob.value}</a>`;
             //marketing advertisement
-            console.log(mktgAd.value);
+            
             if(mktgAd.value === 'true') {
-                document.getElementById('marketingAd').innerHTML = `<a href="https://try.printerlogic.com/protect-your-org-from-print-nightmare/" target="_blank"><img style="padding-top:7px;" width="500" src="http://info.printerlogic.com/rs/338-HTA-134/images/print-nightmare-webinar-970x90-1%4072x-100.jpg" alt="marketing ad"/></a>`;
+                document.getElementById('marketingAd').innerHTML = `<a href="https://printerlogic.com/" target="_blank"><img style="padding-top:7px;" width="500" src="http://info.printerlogic.com/rs/338-HTA-134/images/print-it-awards%2Bg2.jpg" alt="marketing ad"/></a>`;
             } else {
                 document.getElementById('marketingAd').innerHTML = '';
             }
@@ -353,20 +353,20 @@
             }
 
             //logo for company
-            if (company.value === "printerlogic") {
-                document.getElementById("templateLogo").src = 'http://info.printerlogic.com/rs/338-HTA-134/images/pl-logo-purple.png';
-                document.getElementById("euroCompliance").innerHTML = ``
-
-            } else if (company.value === "Printerlogic - Germany") {
-                document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`
-                document.getElementById('templateLogo').src = "http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png"
-
-            } else {
-                document.getElementById('templateLogo').innerHTML = `<a href="https://vasion.com"><img id="templateLogo" width="150" data-class="external"
-                                    src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png" alt="logo"
-                                    style="vertical-align:bottom ; padding: 5px;" /></a>`
-                document.getElementById("euroCompliance").innerHTML = ``
-            };
+            switch(company.value) {
+                case "PrinterLogic":
+                    document.getElementById("templateLogo").src = "http://info.printerlogic.com/rs/338-HTA-134/images/pl-logo-purple.png";
+                    document.getElementById("euroCompliance").innerHTML = ``;
+                    break;
+                case "Printerlogic - Germany":
+                    document.getElementById("templateLogo").src="http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png"
+                    document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`
+                    break;
+                default:
+                    document.getElementById("templateLogo").src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png";
+                    document.getElementById("euroCompliance").innerHTML = ``;
+                    break;
+            }
 
             //mobile info
             // if (mob.value === "") {
