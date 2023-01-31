@@ -56,6 +56,8 @@
         .instructions {
             grid-column: 1;
             grid-row: 3;
+            grid-column: 1;
+            grid-row: 3;
             
         }
 
@@ -189,27 +191,19 @@
             <label>Name:</label> </br><input id="formName" placeholder="John Doe" type="text" required />
             </br>
             <label>Role:</label></br><input id="formRole" placeholder="Chief Business Officer" type="text" required />
-            </br>
-            <label>Number:</label></br> <input id="formMob" type="tel" placeholder="555-555-5555" />
-            <!-- <label>Drift Chat Link:</label></br> <input id="formChat" placeholder="drift.com" type="url" /> -->
-            <label>Email:</label></br> <input id="formEmail" placeholder="Email" type="email" />
+            <!-- </br> -->
+            <!-- <label>Email:</label></br> <input id="formEmail" placeholder="vasioneer@vasion.com" type="email" /> -->
             </br>
             <label>LinkedIn:</label></br> <input id="formLinkedIn" type="url" placeholder="https://www.linkedin.com/company/vasion-software/"/>
             </br>
             <label>Company:</label></br><select id="formCompany">
                 <option value="">--Select One--</option>
-                <option value="PrinterLogic">Printerlogic</option>
+                <option value="vasion">Vasion</option>
                 <option value="Printerlogic - Germany">Printerlogic - Germany</option>
                 <option value="Vasion">Vasion</option>
             </select>
-            <!-- </br> 
-            <label>Image:</label></br><input id="formImg" placeholder="Please place the URL of the image here" type="url" required /> -->
-            </br>
-            <label>Would you like a Marketing collatoral added to the bottom of your signature? </label></br><select id="mktgCheck">
-                <option value="">--Select One --</option>
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-            </select>
+            </br> 
+            <label>Image</label></br><input id="formImg" placeholder="Please place the URL of the image here" type="url" required />
             </br>
             <button onclick="updateInfo()" type="button" id="update">Generate</button>
         </form>
@@ -229,14 +223,13 @@
                                 <tr style="line-height:9px;">
                                     <div>
                                         <span id="name" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; text-align: left;padding-right:7px">Fellow Vasioneer</span>
-                                        <span id="role" scope="col" colspan="3" style="text-align:left; padding-left: 7px;padding-right: 7px;">Astronaut</span>
-                                       
+                                        <span id="role" scope="col" colspan="3" style="text-align:left; padding-left: 7px;">Astronaut</span>
                                     </div>
                                 </tr>
                                 
                                 <tr>
                                     <div>
-                                        <a href="https://printerlogic.com"><img id="templateLogo" width="200" data-class="external"
+                                        <a href="https://vasion.com"><img id="templateLogo" width="150" data-class="external"
                                             src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png" alt="logo"
                                             style="vertical-align:bottom ; padding-top: 15px; padding-bottom: 15px;" /></a>
                                     </div>
@@ -244,9 +237,9 @@
                                 </tr>
                                 <tr style="line-height:9px;">
                                     <div>
-                                        <span id="mobile" scope="col" colspan="2" style="border-right:#b5b5b5 solid 1px; color: #343434; padding-right: 7px;"><a href="#">555-555-5555</a></span>
-                                        <span id="email"scope="col" style=" border-right:#b5b5b5 solid 1px; text-align: center;color: #343434; padding-left: 7px;padding-right:7px"><a href="#">Email Me</a></span>
-                                        <span id="linkedIn" scope="col" colspan="1" style="text-align: center;color: #343434; padding-left:7px;"><a href="https://www.linkedin.com/company/vasion-software/">Connect on LinkedIn</a></span>
+                                        <span id="mobile" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; color: #343434; padding-right: 7px;"><a href="#">555-555-5555</a></span>
+                                        <span id="linkedIn" scope="col" colspan="1" style="border-right:#b5b5b5 solid 1px; text-align: center;color: #343434; padding-right:7px;padding-left:7px;"><a href="https://www.linkedin.com/company/vasion-software/">Let's Connect on LinkedIn</a></span>
+                                        <span scope="col" style="text-align: center;color: #343434; padding-left: 7px;"><a href="https://vasion.com">vasion.com</a></span>
                                     </div>
                                 </tr>
                                 <tr>
@@ -287,11 +280,7 @@
         let company = document.getElementById("formCompany")
         let mob = document.getElementById("formMob");
         let codeArea = document.getElementById("codeArea");
-        let email = document.getElementById("formEmail");
-        // let formChat = document.getElementById("formChat");
-        // let schedule = document.getElementById("formSchedule");
-        let mktgAd = document.getElementById('mktgCheck');
-        
+
 
         copyBtn.addEventListener('click', () => {
             const selection = window.getSelection();
@@ -322,23 +311,10 @@
         function updateInfo() {
             document.getElementById("name").innerHTML = name.value;
             document.getElementById("role").innerHTML = role.value;
-            // document.getElementById('image').src = img.value;
-            // document.getElementById("linkedIn").href = linkedIn.value;
-            document.getElementById('email').innerHTML = `<a href="mailto:${email.value}" style="color:#343434">Email Me</a>`;
-            // document.getElementById('calendar').innerHTML = `<a href="${schedule.value}" style="color:#343434">Book with Me</a>`;
-
+            document.getElementById('image').src = img.value;
+            // document.getElementById("image").innerHTML = image.value;
+            document.getElementById("linkedIn").href = linkedIn.value;
             
-
-            // document.getElementById("calendar").href = schedule.value;
-            document.getElementById("mobile").innerHTML = `<a href="tel:${mob.value}" style ="color: #343434">${mob.value}</a>`;
-            //marketing advertisement
-            
-            if(mktgAd.value === 'true') {
-                document.getElementById('marketingAd').innerHTML = `<a href="https://printerlogic.com/" target="_blank"><img style="padding-top:7px;" width="500" src="http://info.printerlogic.com/rs/338-HTA-134/images/print-it-awards%2Bg2.jpg" alt="marketing ad"/></a>`;
-            } else {
-                document.getElementById('marketingAd').innerHTML = '';
-            }
-
            //linkedin stuff
             if (linkedIn.value === ""){
                 document.getElementById("linkedIn").innerHTML =`<a id="linkedIn" href="https://www.linkedin.com/company/vasion-software/">Connect on LinkedIn</a>`;
@@ -354,19 +330,26 @@
             // }
 
             //logo for company
-            switch(company.value) {
-                case "PrinterLogic":
-                    document.getElementById("templateLogo").src = "http://info.printerlogic.com/rs/338-HTA-134/images/pl-logo-purple.png";
-                    document.getElementById("euroCompliance").innerHTML = ``;
-                    break;
-                case "Printerlogic - Germany":
-                    document.getElementById("templateLogo").src="http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png"
-                    document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`
-                    break;
-                default:
-                    document.getElementById("templateLogo").src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png";
-                    document.getElementById("euroCompliance").innerHTML = ``;
-                    break;
+            if (company.value === "vasion") {
+                document.getElementById("templateLogo").src = 'http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png';
+                document.getElementById("euroCompliance").innerHTML = ``
+
+            } else if (company.value === "Printerlogic - Germany") {
+                document.getElementById("euroCompliance").innerHTML = `<p>PrinterLogic GmbH | Daimlerring 4 | 65205 Wiesbaden | Germany Amtsgericht Königstein HRB 9411 Geschäftsführer  |  Managing Director: Ryan Wedig</p>`
+                document.getElementById('templateLogo').src = "http://info.printerlogic.com/rs/338-HTA-134/images/pl-email-logo.png"
+
+            } else {
+                document.getElementById('templateLogo').innerHTML = `<a href="https://vasion.com"><img id="templateLogo" width="150" data-class="external"
+                                    src="http://info.printerlogic.com/rs/338-HTA-134/images/Vasion-logo-purple.png" alt="logo"
+                                    style="vertical-align:bottom ; padding: 5px;" /></a>`
+                document.getElementById("euroCompliance").innerHTML = ``
+            };
+
+            //mobile info
+            if (mob.value === "") {
+                document.getElementById("mobile").innerHTML =  `<a href="tel:4356521288">435-652-1288</a>`;
+            } else {
+                document.getElementById("mobile").innerHTML = `<a href="tel:${mob.value}" style ="color: #343434">${mob.value}</a>`;
             }
 
             // // mobile info
